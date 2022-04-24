@@ -53,7 +53,7 @@ function generatePlaces(places) {
 
         str += '<div class="searched" data-id="' + place.idPlace + '">';
         str += '    <div class="searched_img">';
-        str += '        <img src="https://acolmenero.site/photowhere/src/img/places/' + photos[0] + '">';
+        str += '        <img src="https://acolmenero.site/photowhere/src/photos/' + photos[0] + '">';
         str += '    </div>';
         str += '    <div class="searched_data">';
         str += '        <div class="namePlace">' + place.namePlace + '</div>';

@@ -53,9 +53,9 @@ prePhoto.close.click(function() {
 
 prePhoto.left_arrow.click(function() {
     prePhoto.current_pre_index = (prePhoto.current_pre_index == 0) ? prePhoto.current_place_photos.length - 1 : prePhoto.current_pre_index - 1;
-    prePhoto.img_pre.attr("src", "https://acolmenero.site/photowhere/src/img/places/" + prePhoto.current_place_photos[prePhoto.current_pre_index]);
+    prePhoto.img_pre.attr("src", "https://acolmenero.site/photowhere/src/photos/" + prePhoto.current_place_photos[prePhoto.current_pre_index]);
 });
 prePhoto.right_arrow.click(function() {
     prePhoto.current_pre_index = (prePhoto.current_pre_index == prePhoto.current_place_photos.length - 1) ? 0 : prePhoto.current_pre_index + 1;
-    prePhoto.img_pre.attr("src", "https://acolmenero.site/photowhere/src/img/places/" + prePhoto.current_place_photos[prePhoto.current_pre_index]);
+    prePhoto.img_pre.attr("src", "https://acolmenero.site/photowhere/src/photos/" + prePhoto.current_place_photos[prePhoto.current_pre_index]);
 });
