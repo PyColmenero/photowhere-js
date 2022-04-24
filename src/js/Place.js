@@ -71,7 +71,7 @@ class Place {
         var only_class = (photos.length == 1) ? "single-img" : "";
         this.place_photos.attr("data-photos", cplace.photosPlace);
         for (var x = 0; x < photos.length; x++) {
-            str_photos += '<img class="place-img ' + only_class + '" src="https://acolmenero.site/photowhere/img/places/' + photos[x] + '" alt="Foto ' + x + ' del lugar">';
+            str_photos += '<img class="place-img ' + only_class + '" src="https://acolmenero.site/photowhere/src/img/places/' + photos[x] + '" alt="Foto ' + x + ' del lugar">';
         }
         this.place_photos.html(str_photos);
 
@@ -114,14 +114,14 @@ class Place {
                         index++;
                         var photos = cplace.photosPlace.split("@");
                         str += "<div class='place_realated' data-index='" + index + "' data-id='" + cplace.idPlace + "' data-lat='" + cplace.latitudePlace + "' data-lng='" + cplace.longitudePlace + "'>";
-                        str += "<div class='related_img'><img src='https://acolmenero.site/photowhere/img/places/" + photos[0] + "'></div>";
+                        str += "<div class='related_img'><img src='https://acolmenero.site/photowhere/src/img/places/" + photos[0] + "'></div>";
                         str += "<p>" + cplace.namePlace + "</p>";
                         str += "</div>";
                     }
                 } else {
                     var photos = cplace.photosPlace.split("@");
                     own += "<div class='place_realated own_related' data-index='" + 0 + "' data-id='" + cplace.idPlace + "' data-lat='" + cplace.latitudePlace + "' data-lng='" + cplace.longitudePlace + "'>";
-                    own += "<div class='related_img'><img src='https://acolmenero.site/photowhere/img/places/" + photos[0] + "'></div>";
+                    own += "<div class='related_img'><img src='https://acolmenero.site/photowhere/src/img/places/" + photos[0] + "'></div>";
                     own += "<p>" + cplace.namePlace + "</p>";
                     own += "</div>";
                 }
