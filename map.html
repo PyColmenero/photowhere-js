@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+
+    <title>WHEREPICK</title>
+    <link rel="icon" href="./src/img/ma1.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css?v=5" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <!-- font-family: 'Montserrat', sans-serif; -->
+
+    <link rel="stylesheet" href="./src/css/common.css?v=5">
+    <!-- <link rel="stylesheet" href="./src/css/style.css?v=5"> -->
+    <link rel="stylesheet" href="./src/css/maps.css?v=5">
+    <link rel="stylesheet" href="./src/css/forms.css?v=5">
+    <link rel="stylesheet" href="./src/css/photo.css?v=5">
+    <link rel="stylesheet" href="./src/css/place.css?v=5">
+    <link rel="stylesheet" href="./src/css/filters.css?v=5">
+    <link rel="stylesheet" href="./src/css/loading.css?v=5">
+
+</head>
+
+<body>
+
+    <nav>
+        <h1>WHEREPICK</h1>
+    </nav>
+
+
+    <div id="photo" style="display:none;">
+        <div class="close">
+            <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-photo">
+        </div>
+        <div id="photo-cont">
+            <img src="" alt="previsualizar" id="img_pre">
+        </div>
+        <div id="arrows">
+            <div id="left_arrow"> <img src="./src/img/arrow.svg" alt="flecha izquierda">
+            </div>
+            <div id="right_arrow"> <img src="./src/img/arrow.svg" alt="flecha derecha">
+            </div>
+        </div>
+    </div>
+    <div id="filters" style="display:none;">
+        <div>
+            <div class="close">
+                <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-filter">
+            </div>
+            <h2 class="noselect">Filtros</h2>
+            <form>
+                <input type="text" placeholder="Busca algo..." id="general-filter">
+                <input type="text" placeholder="Ciudad" id="city-filter">
+                <select name="type" id="types-filter">
+                    <option value="">Todos</option>
+                    <option value="Acantilado">Acantilado</option>
+                    <option value="Agua">Agua</option>
+                    <option value="Abandonado">Abandonado</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Basico">Básico</option>
+                    <option value="Castillo">Castillo</option>
+                    <option value="Carretera">Carretera</option>
+                    <option value="Color">Color</option>
+                    <option value="Cascada">Cascada</option>
+                    <option value="Estátua">Estátuas</option>
+                    <option value="Faro">Faro</option>
+                    <option value="Graffiti">Graffiti</option>
+                    <option value="Historico">Historico</option>
+                    <option value="Jardines">Jardines</option>
+                    <option value="Local">Local</option>
+                    <option value="Lujo">Lujo</option>
+                    <option value="Monumentos">Monumentos</option>
+                    <option value="Montaña">Montaña</option>
+                    <option value="Molinos">Molinos</option>
+                    <option value="Naturaleza">Naturaleza</option>
+                    <option value="Nieve">Nieve</option>
+                    <option value="Playa">Playa</option>
+                    <option value="Puentes">Puentes</option>
+                    <option value="Primaveral">Primaveral</option>
+                    <option value="Pueblo">Pueblo</option>
+                    <option value="Rocas">Rocas</option>
+                    <option value="Rural">Rural</option>
+                    <option value="nolight">Sin contaminación luminica</option>
+                    <option value="Urbano">Urbano</option>
+                    <option value="Vistas">Vistas</option>
+                    <option value="Vanguardia">Vanguardia</option>
+                </select>
+                <p id="nofilter" class="noselect">Borrar filtros</p>
+                <!-- <label><input type="checkbox" name="near" id="near"> Más cercanos</label> -->
+                <button id="btn-filter" type="button">Buscar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="mobile">
+
+        <main>
+            <div id="filters-btn" class="noselect"> Filtros </div>
+            <div id="map"></div>
+            <div id="place">
+                <div id="place-data" class="hide-data">
+                    <div id="closediv" class="close">
+                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
+                    </div>
+                    <div id="data_place">
+                        <div id="loading_place">
+                            <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+                        </div>
+                        <div id="inject-data">
+                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
+                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                            <div id="social_media">
+                                <img alt="icono de la red social">
+                                <p></p>
+                            </div>
+                            <div id="place_photos" data-photos>
+                                <img alt="Foto 0 del lugar" src="">
+                                <img alt="Foto 1 del lugar" src="">
+                            </div>
+
+                            <p id="place_address"></p>
+                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
+
+                        </div>
+
+                        <div id="related">
+                            <p>Lugares cercanos:</p>
+                            <div id="related-indected"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <a class="nav__button" href="./index.html">
+            <img src="https://acolmenero.site/photowhere/img/search.svg" alt="Search footer button">
+        </a>
+        <a class="nav__button" href="./map.html">
+            <img src="https://acolmenero.site/photowhere/img/map.svg" alt="Map footer button">
+        </a>
+        <a class="nav__button" href="./contribute.html">
+            <img src="https://acolmenero.site/photowhere/img/add.svg" alt="Contribute footer button">
+        </a>
+        <a class="nav__button" href="./profile.html">
+            <img src="https://acolmenero.site/photowhere/img/user.svg" alt="Account footer button">
+        </a>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js?v=5" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script src="./src/js/mapOSM.js?v=5"></script>
+    <script src="./src/js/index.js?v=5"></script>
+    <script src="./src/js/Filter.js?v=5"></script>
+    <script src="./src/js/Geo.js?v=5"></script>
+    <script src="./src/js/Place.js?v=5"></script>
+    <script src="./src/js/photo_pre.js?v=5"></script>
+
+</body>
+
+</html>

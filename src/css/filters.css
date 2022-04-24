@@ -1,0 +1,51 @@
+#filters{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.719);
+    z-index: 1010;
+    top: 0;
+}
+    #filters > div{
+        width: 30%;
+        margin: 0 auto;
+        background-color: whitesmoke;
+    }
+        #filters form{
+            padding: 1rem;
+        }
+        #filters h2{
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+
+#filters-btn{
+    height: 2rem;
+    background-color: whitesmoke;
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+    #filters-btn div{
+        
+        /* text-align: center; */
+    }
+
+@media screen and (max-aspect-ratio: 1/1) {
+    
+    #filters{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.719);
+        z-index: 1010;
+        top: 0;
+    }
+        #filters > div{
+            width: 80%;
+        }
+}

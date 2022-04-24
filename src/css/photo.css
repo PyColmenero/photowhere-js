@@ -1,0 +1,57 @@
+#photo {
+    position: fixed;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 999;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    padding-top: 3rem;
+}
+
+
+/* #photo .close{
+        background-color: whitesmoke;
+    } */
+
+#photo-cont {
+    width: 95vw;
+    display: flex;
+    align-items: center;
+    margin: 2rem auto;
+    box-sizing: border-box;
+}
+
+#img_pre {
+    max-width: 95vw;
+    max-height: 72vh;
+    display: block;
+    margin: 0 auto;
+}
+
+#arrows {
+    width: 90%;
+    padding: 0 5%;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+#right_arrow img {
+    transform: rotate(180deg);
+}
+
+#left_arrow img,
+#right_arrow img {
+    width: 2rem;
+    padding: .5rem 1rem;
+    filter: invert(100%);
+    background-color: rgba(255, 255, 255, 0.322);
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHEREPICK</title>
+    <link rel="icon" href="./src/img/ma1.png">
+
+    <link rel="stylesheet" href="./src/css/common.css?v=5">
+    <link rel="stylesheet" href="./src/css/types.css?v=5">
+    <link rel="stylesheet" href="./src/css/photo.css?v=5">
+    <link rel="stylesheet" href="./src/css/filters.css?v=5">
+    <link rel="stylesheet" href="./src/css/forms.css?v=5">
+    <link rel="stylesheet" href="./src/css/place.css?v=5">
+    <link rel="stylesheet" href="./src/css/loading.css?v=5">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+    <!-- font-family: 'Orelega One', cursive; -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <!-- font-family: 'Montserrat', sans-serif; -->
+
+
+
+</head>
+
+<body>
+
+    <nav>
+        <h1>WHEREPICK</h1>
+    </nav>
+
+    <div id="photo" style="display:none;">
+        <div class="close">
+            <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-photo">
+        </div>
+        <div id="photo-cont">
+            <img src="" alt="previsualizar" id="img_pre">
+        </div>
+        <div id="arrows">
+            <div id="left_arrow"> <img src="https://acolmenero.site/photowhere/img/arrow.svg" alt="flecha izquierda"> </div>
+            <div id="right_arrow"> <img src="https://acolmenero.site/photowhere/img/arrow.svg" alt="flecha derecha"> </div>
+        </div>
+    </div>
+
+    <div id="mobile">
+        <main>
+
+
+            <div id="place">
+                <div id="place-data" class="hide-data">
+                    <div id="closediv" class="close">
+                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
+                    </div>
+                    <div id="data_place">
+                        <div id="loading_place">
+                            <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+                        </div>
+                        <div id="inject-data">
+                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
+                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                            <div id="social_media">
+                                <img alt="icono de la red social">
+                                <p></p>
+                            </div>
+                            <div id="place_photos" data-photos>
+                                <img src="https://acolmenero.site/photowhere/img/places/chipiona_03.jpg" alt="Foto 0 del lugar">
+                                <img src="https://acolmenero.site/photowhere/img/places/chipiona_01.jpg" alt="Foto 1 del lugar">
+                            </div>
+
+                            <p id="place_address"></p>
+                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
+                            <div id="own_map_button" class="noselect" data-lat data-lng>
+                                <p>Ver en el mapa</p>
+                            </div>
+
+                        </div>
+
+                        <div id="related">
+                            <p>Lugares cercanos:</p>
+                            <div id="related-indected"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="places" class="near_cont loading_zone">
+
+                <img src="./src/img/loading_w.gif" class="loading_gif" alt="Loading gif" style="margin: 15rem 0;">
+
+            </div>
+
+
+        </main>
+    </div>
+
+
+    <footer>
+        <a class="nav__button" href="./index.html">
+            <img src="https://acolmenero.site/photowhere/img/search.svg" alt="Search footer button">
+        </a>
+        <a class="nav__button" href="./map.html">
+            <img src="https://acolmenero.site/photowhere/img/map.svg" alt="Map footer button">
+        </a>
+        <a class="nav__button" href="./contribute.html">
+            <img src="https://acolmenero.site/photowhere/img/add.svg" alt="Contribute footer button">
+        </a>
+        <a class="nav__button" href="./profile.html">
+            <img src="https://acolmenero.site/photowhere/img/user.svg" alt="Account footer button">
+        </a>
+    </footer>
+
+    <script src="./src/js/Geo.js?v=5"></script>
+    <script src="./src/js/load_photos.js?v=5"></script>
+    <script src="./src/js/Place.js?v=5"></script>
+    <script src="./src/js/Filter.js?v=5"></script>
+    <script src="./src/js/near.js?v=5"></script>
+    <script src="./src/js/photo_pre.js?v=5"></script>
+    <script src="./src/js/get_locations.js?v=5"></script>
+
+    <!-- <script src="cordova.js?v=5"></script> -->
+    <script src="./src/js/index.js?v=5"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHEREPICK</title>
+    <link rel="icon" href="./src/img/ma1.png">
+
+    <link rel="stylesheet" href="./src/css/common.css?v=5">
+    <link rel="stylesheet" href="./src/css/forms.css?v=5">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+
+    <style>
+        main {
+            padding: 2rem 1rem;
+        }
+        
+        .prefer {
+            color: rgb(126, 126, 126);
+            text-decoration: 0;
+            margin-right: 1rem;
+        }
+        
+        #error {
+            color: rgb(255, 108, 108);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <h1>WHEREPICK</h1>
+    </nav>
+
+    <main>
+
+        <fieldset>
+            <legend>
+                <h2>Log In</h2>
+            </legend>
+            <form method="POST">
+                <input type="text" name="username" placeholder="username" id="username">
+                <input type="password" name="password" placeholder="password" id="password">
+                <label id="error"></label>
+                <a href="./register.html" class="prefer">
+                    <div class="button">
+                        <p>Register</p>
+                    </div>
+                </a>
+                <button type="button" id="login_button">Log In</button>
+            </form>
+        </fieldset>
+
+    </main>
+
+    <footer>
+        <a class="nav__button" href="./index.html">
+            <img src="https://acolmenero.site/photowhere/img/search.svg" alt="Search footer button">
+        </a>
+        <a class="nav__button" href="./map.html">
+            <img src="https://acolmenero.site/photowhere/img/map.svg" alt="Map footer button">
+        </a>
+        <a class="nav__button" href="./contribute.html">
+            <img src="https://acolmenero.site/photowhere/img/add.svg" alt="Contribute footer button">
+        </a>
+        <a class="nav__button" href="./profile.html">
+            <img src="https://acolmenero.site/photowhere/img/user.svg" alt="Account footer button">
+        </a>
+    </footer>
+
+    <script>
+        var login_button = $("#login_button");
+        var username = $("#username");
+        var password = $("#password");
+        var error = $("#error");
+
+        login_button.click(function() {
+
+            var user = username.val().replaceAll("'", "").replaceAll('"', "");
+            username.val(user);
+            var pass = password.val().replaceAll("'", "").replaceAll('"', "");
+            password.val(pass);
+
+            if (user.length >= 6 && pass.length >= 6) {
+                login_button.text("Logging in");
+                $.ajax({
+                    type: "POST",
+                    // url: "https://acolmenero.site/photowhere/php/login.php",
+                    url: "./src/php/login.php",
+                    data: {
+                        "username": user,
+                        "password": pass
+                    },
+                    success: function(res) {
+
+                        if (res == "-Username and passwords do not match.") {
+                            error.text("Usuario y contraseña no coinciden");
+                            login_button.text("Log in");
+                        } else {
+                            localStorage.setItem("userID", res.split("'")[0]);
+                            localStorage.setItem("username", res.split("'")[1]);
+                            window.location = "./profile.html";
+                        }
+
+                    }
+                });
+            }
+        })
+    </script>
+
+</body>
+
+</html>

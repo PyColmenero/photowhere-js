@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WHEREPICK</title>
+    <link rel="icon" href="./src/img/ma1.png">
+
+    <link rel="stylesheet" href="./src/css/common.css?v=5">
+    <link rel="stylesheet" href="./src/css/home.css?v=5">
+    <link rel="stylesheet" href="./src/css/photo.css?v=5">
+    <link rel="stylesheet" href="./src/css/place.css?v=5">
+    <link rel="stylesheet" href="./src/css/loading.css?v=5">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+    <!-- font-family: 'Montserrat', sans-serif; -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+
+    <style>
+        html,
+        body,
+        main {
+            background-color: black;
+        }
+        
+        #username_div {
+            background: url("./img/a.jpg") no-repeat center;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+        
+        #username {
+            margin: 0;
+            color: aliceblue;
+            width: 100%;
+            margin-left: 2rem;
+        }
+        
+        #title {
+            padding: 1rem;
+            background-color: black;
+            color: whitesmoke;
+        }
+        
+        .user_cont {
+            background-color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav>
+        <h1>WHEREPICK</h1>
+        <a href="./settings.html"><img src="./src/img/hamb.svg" alt="icono de hamburguesa" id="hamb"></a>
+    </nav>
+
+    <div id="photo" style="display:none;">
+        <div class="close">
+            <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-photo">
+        </div>
+        <div id="photo-cont">
+            <img src="" alt="previsualizar" id="img_pre">
+        </div>
+        <div id="arrows">
+            <div id="left_arrow"> <img src="https://acolmenero.site/photowhere/img/arrow.svg" alt="flecha izquierda"> </div>
+            <div id="right_arrow"> <img src="https://acolmenero.site/photowhere/img/arrow.svg" alt="flecha derecha"> </div>
+        </div>
+    </div>
+
+    <main>
+        <div id="place">
+            <div id="place-data" class="hide-data">
+                <div id="closediv" class="close">
+                    <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
+                </div>
+                <div id="data_place">
+                    <div id="loading_place">
+                        <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+                    </div>
+                    <div id="inject-data">
+                        <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
+                        <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                        <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                        <div id="social_media">
+                            <img alt="icono de la red social">
+                            <p></p>
+                        </div>
+                        <!-- <div id="place_types">
+                            <label>#Monumento</label>
+                            <label>#Playa</label>
+                        </div> -->
+                        <div id="place_photos" data-photos>
+                            <img src="https://acolmenero.site/photowhere/img/places/chipiona_03.jpg" alt="Foto 0 del lugar">
+                            <img src="https://acolmenero.site/photowhere/img/places/chipiona_01.jpg" alt="Foto 1 del lugar">
+                        </div>
+
+                        <p id="place_address"></p>
+                        <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
+                        <div id="own_map_button" class="noselect" data-lat data-lng>
+                            <p>Ver en el mapa</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="username_div">
+            <h2 id="username"></h2>
+        </div>
+        <div id="title">
+            Tus fotografías:
+        </div>
+        <div class="user_cont">
+            <img src="./src/img/loading_w.gif" id="loading1" alt="Loading gif">
+        </div>
+    </main>
+
+
+    <footer>
+        <a class="nav__button" href="./index.html">
+            <img src="https://acolmenero.site/photowhere/img/search.svg" alt="Search footer button">
+        </a>
+        <a class="nav__button" href="./map.html">
+            <img src="https://acolmenero.site/photowhere/img/map.svg" alt="Map footer button">
+        </a>
+        <a class="nav__button" href="./contribute.html">
+            <img src="https://acolmenero.site/photowhere/img/add.svg" alt="Contribute footer button">
+        </a>
+        <a class="nav__button" href="./profile.html">
+            <img src="https://acolmenero.site/photowhere/img/user.svg" alt="Account footer button">
+        </a>
+    </footer>
+
+    <script src="./src/js/Filter.js?v=5"></script>
+    <script src="./src/js/load_photos.js?v=5"></script>
+    <script src="./src/js/photo_pre.js?v=5"></script>
+    <script src="./src/js/Place.js?v=5"></script>
+    <script src="./src/js/profile.js?v=5"></script>
+
+</body>
+
+</html>

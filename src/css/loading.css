@@ -1,0 +1,62 @@
+/*==== LOADING ====*/
+
+.loading_zone {
+    position: relative;
+}
+
+.loading_gif {
+    position: absolute;
+    opacity: 25%;
+    width: 112px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+
+/* 
+#loading1 {
+    width: 8vw;
+    margin: 11vw 11vw;
+    display: block;
+    opacity: 25%;
+}
+
+#loading2 {
+    width: 8vw;
+    margin: 21vw 11vw;
+    display: block;
+    opacity: 25%;
+}
+
+#loading3 {
+    width: 10vw;
+    margin: 10rem auto;
+    display: block;
+    opacity: 25%;
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #loading1 {
+        width: 20vw;
+        margin: 40vw 40vw;
+        display: block;
+        opacity: 25%;
+    }
+    #loading2 {
+        width: 20vw;
+        margin: 60vw 40vw;
+        display: block;
+        opacity: 25%;
+    }
+    #loading3 {
+        width: 20vw;
+        margin: 10rem auto;
+        display: block;
+        opacity: 25%;
+    }
+} */
