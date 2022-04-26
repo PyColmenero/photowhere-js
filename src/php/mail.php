@@ -1,29 +1,26 @@
 <?php
 
+include("./connection.php");
+$con = mysqli_connect('45.13.252.52', $database_user, $database_pasw);
+mysqli_select_db($con, $database_name);
+
 $name = $_POST["name"];
 $desc = $_POST["desc"];
-$imgs = $_POST["imgs"];
+$lat = $_POST["lat"];
+$lng = $_POST["lng"];
 
-$to = "pycolmenero@gmail.com";
-$subject = "NUEVA CONTRIBUCIÓN";
+$sentencia = "INSERT INTO contributions VALUES(NULL, '$name', '$desc', $lat, $lng);";
 
-$message = $name.": " .$desc. " \r\n";
-for($x = 0; $x < count($imgs); $x++){
-    $message .= "@@@@@@@@@@@@@@@@@@@". $imgs[$x] . "@@@@@@@@@@@@@@@@@@@";
-}
+if (mysqli_query($con, $sentencia)) {
 
-$header = "From:pycolmenero@acolmenero.site \r\n";
-$header .= "Cc:pycolmenero@acolmenero.site \r\n";
-$header .= "MIME-Version: 1.0\r\n";
-$header .= "Content-type: text\r\n";
+    echo false;
 
-// echo $message;
-
-$retval = mail($to, $subject, $message, $header);
-
-if ($retval == true) {
-    echo "Message sent successfully...";
 } else {
-    echo "Message could not be sent...";
+
+    $output = "-Error occurred: " . mysqli_error($con);
+    echo $output;
+
 }
+
+
 ?>

@@ -4,7 +4,6 @@ var img;
 
 class Bug {
     constructor() {
-        this.urls = [];
         this.lat;
         this.lng;
     }
@@ -12,39 +11,39 @@ class Bug {
 var bug = new Bug();
 
 // Grabbing Elements and Storing in Variables
-const defaultFile = document.getElementById("default-file");
-const customBtn = document.getElementById("custom-btn");
-customBtn.addEventListener("click", function() {
-    defaultFile.click();
-});
+// const defaultFile = document.getElementById("default-file");
+// const customBtn = document.getElementById("custom-btn");
+// customBtn.addEventListener("click", function() {
+//     defaultFile.click();
+// });
 
-// File Upload
-defaultFile.addEventListener("change", function() {
+// // File Upload
+// defaultFile.addEventListener("change", function() {
 
-    if (bug.urls.length < 8) {
-        const files = defaultFile.files[0];
-        console.log(files.size);
-        if (files.size < 10000000) {
-            if (files) {
-                const fileReader = new FileReader();
-                fileReader.addEventListener("load", function() {
+//     if (bug.urls.length < 8) {
+//         const files = defaultFile.files[0];
+//         console.log(files.size);
+//         if (files.size < 10000000) {
+//             if (files) {
+//                 const fileReader = new FileReader();
+//                 fileReader.addEventListener("load", function() {
 
-                    img = $($(".realimg")[bug.urls.length])
-                    img.attr("src", this.result);
-                    bug.urls.push(this.result)
-                        // error.html("<a href='"+ bug.urls[0] +"'> Imagen nº0</a>");
-                });
-                fileReader.readAsDataURL(files);
-            }
-            error.html("");
-        } else {
-            error.text("Foto demasiado grande.");
-        }
-    }
+//                     img = $($(".realimg")[bug.urls.length])
+//                     img.attr("src", this.result);
+//                     bug.urls.push(this.result)
+//                         // error.html("<a href='"+ bug.urls[0] +"'> Imagen nº0</a>");
+//                 });
+//                 fileReader.readAsDataURL(files);
+//             }
+//             error.html("");
+//         } else {
+//             error.text("Foto demasiado grande.");
+//         }
+//     }
 
-    $(defaultFile).val("");
+//     $(defaultFile).val("");
 
-});
+// });
 
 var realimg = $(".realimg");
 realimg.click(function() {
@@ -96,50 +95,49 @@ var error = $("#error");
 send.click(function() {
 
     var name = name_place.val().replaceAll("'", "").replaceAll('"', "");
-    name_place.val(name);
     var desc = desc_place.val().replaceAll("'", "").replaceAll('"', "");
+
+    name_place.val(name);
     desc_place.val(desc);
 
     if (name.length <= 4) {
         error.text("Nombre muy corto.");
     } else {
 
-        if (bug.urls.length == 0) {
-            error.text("Seleccione al menos una foto.");
+        // if (bug.urls.length == 0) {
+        //     error.text("Seleccione al menos una foto.");
+        // } else {
+
+        if (bug.lat == null) {
+            error.text("Seleccione una ubicación aproximada.");
         } else {
 
-            if (bug.lat == null) {
-                error.text("Seleccione una ubicación aproximada.");
-            } else {
+            error.text("");
+            send.text("Enviando...")
+            name_place.val("");
+            desc_place.val("");
+            save_form(name, desc, bug);
 
-                console.log(name);
-                console.log(desc);
-                console.log(bug.urls);
-                console.log(bug.lat);
-                console.log(bug.lng);
-
-                send.text("Enviando...")
-                name_place.val("");
-                desc_place.val("");
-                send_mail(name, desc, bug.urls);
-
-            }
         }
     }
-
-
 });
 
-function send_mail(name, desc) {
+function save_form(name, desc, bug) {
+    console.log(bug);
     $.ajax({
         type: "POST",
         // url: "https://acolmenero.site/photowhere/php/mail.php",
         url: "./src/php/mail.php",
-        data: { "name": name, "desc": desc, "imgs": bug.urls },
+        data: { "name": name, "desc": desc, "lat": bug.lat, "lng": bug.lng },
         success: function(res) {
 
-            send.text(res + ". MUCHAS GRACIAS.")
-            setTimeout(function() { window.location = "./index.html" }, 2000);
+            if (res) {
+                console.log(res);
+            } else {
+                window.location.href = "./contribute-images.html";
+            }
+            // send.text(res + ". MUCHAS GRACIAS.")
+            // setTimeout(function() { window.location = "./index.html" }, 2000);
 
         }
     });

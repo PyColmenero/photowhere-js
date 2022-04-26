@@ -17,7 +17,9 @@ h2,
 h3,
 p,
 .tag a,
-strong {
+strong,
+label,
+button {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -71,6 +73,19 @@ h1 {
     text-align: center;
     padding: .75rem 0;
     text-align: 2rem;
+}
+
+#hamb {
+    width: 2rem;
+    height: 2rem;
+    padding: .5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#hamb:hover {
+    background-color: rgb(235, 235, 235);
 }
 
 main {

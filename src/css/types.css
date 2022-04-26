@@ -3,15 +3,11 @@
 } */
 
 #places {
-    /* min-height: 40vh; */
     width: 100%;
     display: grid;
     grid-template-columns: auto auto auto;
     column-gap: 2px;
     row-gap: 2px;
-    /* align-items: flex-start; */
-    /* justify-content: start; */
-    /* padding-bottom: 4rem; */
 }
 
 .place {

@@ -20,14 +20,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
 
     <style>
-        html,
-        body,
-        main {
-            background-color: black;
+        .place {
+            aspect-ratio: 1/1;
         }
         
         #username_div {
-            background: url("./img/a.jpg") no-repeat center;
+            background: url("./src/img/a.jpg") no-repeat center;
             height: 100px;
             display: flex;
             align-items: center;
@@ -46,8 +44,12 @@
             color: whitesmoke;
         }
         
-        .user_cont {
-            background-color: black;
+        #places {
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            column-gap: 2px;
+            row-gap: 2px;
         }
     </style>
 
@@ -73,53 +75,51 @@
         </div>
     </div>
 
-    <main>
-        <div id="place">
-            <div id="place-data" class="hide-data">
-                <div id="closediv" class="close">
-                    <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
-                </div>
-                <div id="data_place">
-                    <div id="loading_place">
-                        <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+    <div id="mobile">
+        <main>
+            <div id="place">
+                <div id="place-data" class="hide-data">
+                    <div id="closediv" class="close">
+                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
                     </div>
-                    <div id="inject-data">
-                        <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
-                        <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                        <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                        <div id="social_media">
-                            <img alt="icono de la red social">
-                            <p></p>
+                    <div id="data_place">
+                        <div id="loading_place" class="loading_zone">
+                            <img src="./src/img/loading_b.gif" class="loading_gif" alt="Loading gif">
                         </div>
-                        <!-- <div id="place_types">
-                            <label>#Monumento</label>
-                            <label>#Playa</label>
-                        </div> -->
-                        <div id="place_photos" data-photos>
-                            <img src="" alt="Foto 0 del lugar">
-                            <img src="" alt="Foto 1 del lugar">
-                        </div>
+                        <div id="inject-data">
+                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
+                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                            <div id="social_media">
+                                <img alt="icono de la red social">
+                                <p></p>
+                            </div>
+                            <div id="place_photos" data-photos>
+                                <img src="" alt="Foto 0 del lugar">
+                                <img src="" alt="Foto 1 del lugar">
+                            </div>
 
-                        <p id="place_address"></p>
-                        <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
-                        <div id="own_map_button" class="noselect" data-lat data-lng>
-                            <p>Ver en el mapa</p>
-                        </div>
+                            <p id="place_address"></p>
+                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
+                            <div id="own_map_button" class="noselect" data-lat data-lng>
+                                <p>Ver en el mapa</p>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="username_div">
-            <h2 id="username"></h2>
-        </div>
-        <div id="title">
-            Tus fotografías:
-        </div>
-        <div class="user_cont">
-            <img src="./src/img/loading_w.gif" id="loading1" alt="Loading gif">
-        </div>
-    </main>
+            <div id="username_div">
+                <h2 id="username"></h2>
+            </div>
+            <div class="section_title">
+                <h2>Tus fotografías:</h2>
+            </div>
+            <div class="user_cont loading_zone" id="places">
+                <img src="./src/img/loading_w.gif" class="loading_gif" alt="Loading gif" style="margin-top: 5rem;">
+            </div>
+        </main>
+    </div>
 
 
     <footer>

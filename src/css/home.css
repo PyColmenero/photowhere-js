@@ -44,7 +44,6 @@ section {
 
 .place {
     aspect-ratio: 1/1;
-    /* position: relative; */
     overflow: hidden;
     background-color: rgb(26, 26, 26);
 }
@@ -111,11 +110,12 @@ section {
     flex-wrap: wrap;
 }
 
-.user_cont>div {
+
+/* .user_cont>div {
     width: calc(9.9vw - 1px);
     height: calc(9.9vw - 1px);
     margin: 1px;
-}
+} */
 
 #near_cont,
 #popular_cont {

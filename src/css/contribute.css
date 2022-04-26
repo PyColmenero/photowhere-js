@@ -9,6 +9,18 @@ h2 {
     display: flex;
 }
 
+.section_title {
+    position: relative;
+    padding: .7rem;
+    background-color: black;
+}
+
+label {
+    color: whitesmoke;
+    font-size: 1rem !important;
+    padding: .5rem .2rem;
+}
+
 .photo_input {
     position: relative;
     margin: 2px;
@@ -21,6 +33,12 @@ h2 {
     overflow: hidden;
 }
 
+h2 {
+    margin: 0;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+
 .realimg {
     background-size: cover;
     /* width: 36vw; */
@@ -29,8 +47,8 @@ h2 {
 #cmap {
     background-color: #F2EFE9;
     width: 100%;
-    height: 50vh;
-    margin-top: 1rem;
+    height: 40vh;
+    /* margin-top: 1rem; */
     overflow: hidden;
 }
 
@@ -87,7 +105,10 @@ h2 {
 
 #error {
     color: red;
-    font-size: 1.1rem;
+    font-size: .8rem !important;
+    margin: .5rem .4rem !important;
+    display: block;
+    text-align: right;
 }
 
 @media (min-width: 992px) {
