@@ -83,6 +83,7 @@ class PhotoController {
         for (let key in locations) {
             var location = locations[key];
 
+            console.log(location);
             var src = "./src/photos/" + location.photos.split(", ")[0];
             let style_attr = "style='background: url(\"" + src + "\") no-repeat center; background-size:cover'";
 
