@@ -1,8 +1,6 @@
-
 RewriteEngine On
-RewriteCond %{THE_REQUEST} /src
-RewriteRule ^ - [L]
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ ./index.php [QSA,L]
+ 
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+RewriteRule ^.*$ ./index.php
