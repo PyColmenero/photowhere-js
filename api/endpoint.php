@@ -1,7 +1,8 @@
 <?php
 
 $request = $_SERVER['REQUEST_URI'];
-$request = substr($request,16);
+$request = substr($request,12);
+// $request = substr($request,16);
 $request = explode("/",$request);
 $root    = $request[1];
 
