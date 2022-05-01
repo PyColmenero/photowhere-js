@@ -1,9 +1,11 @@
 <?php
 
 include("./connection.php");
+
 $con = mysqli_connect('45.13.252.52', $database_user, $database_pasw);
 mysqli_select_db($con, $database_name);
 
+// isset
 $name = $_POST["name"];
 $desc = $_POST["desc"];
 $lat = $_POST["lat"];

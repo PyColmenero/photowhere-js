@@ -104,9 +104,6 @@ send.click(function() {
         error.text("Nombre muy corto.");
     } else {
 
-        // if (bug.urls.length == 0) {
-        //     error.text("Seleccione al menos una foto.");
-        // } else {
 
         if (bug.lat == null) {
             error.text("Seleccione una ubicación aproximada.");
