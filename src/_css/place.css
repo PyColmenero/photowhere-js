@@ -1,4 +1,4 @@
-#place-data {
+#location-panel {
     background-color: whitesmoke;
     border-radius: 2px 2px 0 0;
     position: fixed;
@@ -10,11 +10,11 @@
     left: 50%;
 }
 
-.show-data {
+.show-location-panel {
     transform: translate(-50%, 0%) !important;
 }
 
-.hide-data {
+.hide-location-panel {
     transform: translate(-50%, 100%) !important;
 }
 
@@ -103,13 +103,12 @@
     overflow-x: scroll;
     align-items: flex-start;
     margin: .5rem 0;
+    margin-bottom: 3rem;
     padding: 0 2px;
     background-color: whitesmoke;
-    /* border-top: 1px solid rgb(177, 177, 177);
-                border-bottom: 1px solid rgb(177, 177, 177); */
 }
 
-.place-img {
+.location-image {
     height: 10rem;
     margin-right: 2px;
 }

@@ -23,14 +23,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <!-- font-family: 'Montserrat', sans-serif; -->
 
-    <link rel="stylesheet" href="./src/css/common.css?v=5">
-    <!-- <link rel="stylesheet" href="./src/css/style.css?v=5"> -->
+    <!-- <link rel="stylesheet" href="./src/css/common.css?v=5">
     <link rel="stylesheet" href="./src/css/maps.css?v=5">
     <link rel="stylesheet" href="./src/css/forms.css?v=5">
     <link rel="stylesheet" href="./src/css/photo.css?v=5">
     <link rel="stylesheet" href="./src/css/place.css?v=5">
     <link rel="stylesheet" href="./src/css/filters.css?v=5">
-    <link rel="stylesheet" href="./src/css/loading.css?v=5">
+    <link rel="stylesheet" href="./src/css/loading.css?v=5"> -->
+    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/locationpanel.css">
+    <link rel="stylesheet" href="./src/css/loading.css">
+    <link rel="stylesheet" href="./src/css/photodisplaypanel.css">
+    <link rel="stylesheet" href="./src/css/photogrid.css">
+    <link rel="stylesheet" href="./src/css/map.css">
 
 </head>
 
@@ -41,17 +46,19 @@
     </nav>
 
 
-    <div id="photo" style="display:none;">
-        <div class="close">
-            <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-photo">
+    <div id="photo-display-panel" style="display:none;">
+        <div id="close-photo-display-panel" class="close-panel">
+            <img src="./src/img/cancel.svg" alt="cerrar ventana">
         </div>
-        <div id="photo-cont">
-            <img src="" alt="previsualizar" id="img_pre">
+        <div id="photo-display-panel-container">
+            <img src="" alt="previsualizar" id="photo-display-panel-img">
         </div>
-        <div id="arrows">
-            <div id="left_arrow"> <img src="./src/img/arrow.svg" alt="flecha izquierda">
+        <div id="photo-display-panel-arrows">
+            <div id="photo-display-panel-left-arrow" class="arrow">
+                <img src="./src/img/arrow.svg" alt="flecha izquierda">
             </div>
-            <div id="right_arrow"> <img src="./src/img/arrow.svg" alt="flecha derecha">
+            <div id="photo-display-panel-right-arrow" class="arrow">
+                <img src="./src/img/arrow.svg" alt="flecha derecha">
             </div>
         </div>
     </div>
@@ -109,66 +116,66 @@
 
         <main>
             <div id="filters-btn" class="noselect"> Filtros </div>
+
             <div id="map"></div>
-            <div id="place">
-                <div id="place-data" class="hide-data">
-                    <div id="closediv" class="close">
-                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
-                    </div>
-                    <div id="data_place">
-                        <div id="loading_place">
-                            <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+
+            <div id="location-panel" class="hide-location-panel">
+                <div class="close-panel" id="close-location-panel">
+                    <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-location-panel">
+                </div>
+                <div id="location-panel-data">
+                    <div id="inject-data">
+
+                        <div id="location_share">
+                            <img src="./src/img/share1.svg" alt="">
                         </div>
-                        <div id="inject-data">
-                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
-                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                            <div id="social_media">
+
+                        <h2 id="location_name">Lorem ipsum dolor.</h2>
+                        <h3 id="location_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+
+                        <div>
+                            <a href="" id="location_socialmedia">
                                 <img alt="icono de la red social">
                                 <p></p>
-                            </div>
-                            <div id="place_photos" data-photos>
-                                <img alt="Foto 0 del lugar" src="">
-                                <img alt="Foto 1 del lugar" src="">
-                            </div>
+                            </a>
+                        </div>
 
-                            <p id="place_address"></p>
-                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
+                        <div id="location-photos">
 
                         </div>
 
-                        <div id="related">
-                            <p>Lugares cercanos:</p>
-                            <div id="related-indected"></div>
-                        </div>
+                        <p id="location_address"></p>
+                        <p id="location_googlemaps">
+                            <a href="#" target="_blank"> Ver en Google Maps </a>
+                        </p>
+
                     </div>
                 </div>
             </div>
         </main>
+        <footer>
+            <a class="nav__button" href="./">
+                <img src="./src/img/search.svg" alt="Home footer button">
+            </a>
+            <a class="nav__button" href="./map">
+                <img src="./src/img/map.svg" alt="Map footer button">
+            </a>
+            <a class="nav__button" href="./contribute">
+                <img src="./src/img/add.svg" alt="Contribute footer button">
+            </a>
+            <a class="nav__button" href="./profile">
+                <img src="./src/img/user.svg" alt="Profile footer button">
+            </a>
+        </footer>
     </div>
 
-    <footer>
-        <a class="nav__button" href="./index.html">
-            <img src="https://acolmenero.site/photowhere/src/img/search.svg" alt="Search footer button">
-        </a>
-        <a class="nav__button" href="./map.html">
-            <img src="https://acolmenero.site/photowhere/src/img/map.svg" alt="Map footer button">
-        </a>
-        <a class="nav__button" href="./contribute.html">
-            <img src="https://acolmenero.site/photowhere/src/img/add.svg" alt="Contribute footer button">
-        </a>
-        <a class="nav__button" href="./profile.html">
-            <img src="https://acolmenero.site/photowhere/src/img/user.svg" alt="Account footer button">
-        </a>
-    </footer>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js?v=5" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script src="./src/js/mapOSM.js?v=5"></script>
-    <script src="./src/js/index.js?v=5"></script>
-    <script src="./src/js/Filter.js?v=5"></script>
-    <script src="./src/js/Geo.js?v=5"></script>
-    <script src="./src/js/Place.js?v=5"></script>
-    <script src="./src/js/photo_pre.js?v=5"></script>
+    <script src="./src/js/ApiLocationsController.js"></script>
+    <script src="./src/js/GeoController.js"></script>
+    <script src="./src/js/LocationsController.js"></script>
+    <script src="./src/js/PhotoController.js"></script>
+    <script src="./src/js/MapController.js"></script>
 
 </body>
 

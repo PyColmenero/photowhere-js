@@ -1,0 +1,43 @@
+html,
+body {
+    background-color: whitesmoke !important;
+}
+
+#mobile {
+    background-color: whitesmoke !important;
+    width: 100%;
+}
+
+#map {
+    height: calc(100vh - 8rem);
+    width: 100%;
+}
+
+.gmnoprint,
+.gm-fullscreen-control {
+    display: none;
+}
+
+#filters-btn {
+    height: 2rem;
+    background-color: whitesmoke;
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+@media (min-width: 576px) {
+    footer,
+    nav {
+        margin: 0 auto;
+        width: 500px !important;
+    }
+    footer {
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+    }
+}

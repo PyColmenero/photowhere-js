@@ -35,76 +35,81 @@
         <h1>PHOTOWHERE</h1>
     </nav>
 
-    <div id="photo" style="display:none;">
-        <div class="close">
-            <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-photo">
+    <div id="photo-display-panel" style="display:none;">
+        <div id="close-photo-display-panel" class="close-panel">
+            <img src="./src/img/cancel.svg" alt="cerrar ventana">
         </div>
-        <div id="photo-cont">
-            <img src="" alt="previsualizar" id="img_pre">
+        <div id="photo-display-panel-container">
+            <img src="" alt="previsualizar" id="photo-display-panel-img">
         </div>
-        <div id="arrows">
-            <div id="left_arrow"> <img src="https://acolmenero.site/photowhere/src/img/arrow.svg" alt="flecha izquierda"> </div>
-            <div id="right_arrow"> <img src="https://acolmenero.site/photowhere/src/img/arrow.svg" alt="flecha derecha"> </div>
+        <div id="photo-display-panel-arrows">
+            <div id="photo-display-panel-left-arrow" class="arrow">
+                <img src="./src/img/arrow.svg" alt="flecha izquierda">
+            </div>
+            <div id="photo-display-panel-right-arrow" class="arrow">
+                <img src="./src/img/arrow.svg" alt="flecha derecha">
+            </div>
         </div>
     </div>
 
-    <main>
-        <div id="place">
-            <div id="place-data" class="hide-data">
-                <div id="closediv" class="close">
-                    <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
-                </div>
-                <div id="data_place">
-                    <div id="loading_place">
-                        <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+    <div id="mobile">
+
+
+        <main>
+            <div id="place">
+                <div id="place-data" class="hide-data">
+                    <div id="closediv" class="close">
+                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
                     </div>
-                    <div id="inject-data">
-                        <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
-                        <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                        <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                        <div id="social_media">
-                            <img alt="icono de la red social">
-                            <p></p>
+                    <div id="data_place">
+                        <div id="loading_place">
+                            <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
                         </div>
-                        <!-- <div id="place_types">
-                            <label>#Monumento</label>
-                            <label>#Playa</label>
-                        </div> -->
-                        <div id="place_photos" data-photos>
-                            <img src="" alt="Foto 0 del lugar">
-                            <img src="" alt="Foto 1 del lugar">
-                        </div>
+                        <div id="inject-data">
+                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
+                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                            <div id="social_media">
+                                <img alt="icono de la red social">
+                                <p></p>
+                            </div>
+                            <div id="place_photos" data-photos>
+                                <img src="" alt="Foto 0 del lugar">
+                                <img src="" alt="Foto 1 del lugar">
+                            </div>
 
-                        <p id="place_address"></p>
-                        <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
-                        <div id="own_map_button" class="noselect" data-lat data-lng>
-                            <p>Ver en el mapa</p>
+                            <p id="place_address"></p>
+                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
+                            <div id="own_map_button" class="noselect" data-lat data-lng>
+                                <p>Ver en el mapa</p>
+                            </div>
+
                         </div>
 
                     </div>
-
                 </div>
             </div>
-        </div>
 
-        <div id="places" class="popular_cont">
-            <img src="./src/img/loading_w.gif" id="loading1" alt="Loading gif">
-        </div>
-    </main>
+            <div id="places" class="popular_cont loading_zone">
+                <img src="./src/img/loading_w.gif" class="loading_gif" alt="Loading gif" style="margin: 15rem 0;">
+            </div>
+
+        </main>
+    </div>
 
 
     <footer>
-        <a class="nav__button" href="./index.html">
-            <img src="https://acolmenero.site/photowhere/src/img/search.svg" alt="Search footer button">
+        <a href="./">
+            <img src="./src/img/search.svg" alt="Home footer button">
         </a>
-        <a class="nav__button" href="./map.html">
-            <img src="https://acolmenero.site/photowhere/src/img/map.svg" alt="Map footer button">
+        <a href="./map">
+            <img src="./src/img/map.svg" alt="Map footer button">
         </a>
-        <a class="nav__button" href="./contribute.html">
-            <img src="https://acolmenero.site/photowhere/src/img/add.svg" alt="Contribute footer button">
+        <a href="./contribute">
+            <img src="./src/img/add.svg" alt="Contribute footer button">
         </a>
-        <a class="nav__button" href="./profile.html">
-            <img src="https://acolmenero.site/photowhere/src/img/user.svg" alt="Account footer button">
+        <a href="./profile">
+            <img src="./src/img/user.svg" alt="Profile footer button">
         </a>
     </footer>
 

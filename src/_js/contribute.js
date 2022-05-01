@@ -113,6 +113,7 @@ send.click(function() {
             send.text("Enviando...")
             name_place.val("");
             desc_place.val("");
+
             save_form(name, desc, bug);
 
         }
@@ -133,8 +134,6 @@ function save_form(name, desc, bug) {
             } else {
                 window.location.href = "./contribute-images.html";
             }
-            // send.text(res + ". MUCHAS GRACIAS.")
-            // setTimeout(function() { window.location = "./index.html" }, 2000);
 
         }
     });

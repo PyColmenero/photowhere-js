@@ -1,0 +1,130 @@
+#location-panel {
+    background-color: whitesmoke;
+    border-radius: 2px 2px 0 0;
+    z-index: 401;
+    position: fixed;
+    left: 50%;
+    bottom: 3rem;
+    width: 100%;
+    overflow: hidden;
+    transition: transform .3s ease-in;
+}
+
+#location-panel h2,
+#location-panel h3,
+#location_address {
+    color: black;
+}
+
+#location-panel h2 {
+    margin: 0;
+    padding: 1rem 1rem .5rem 1rem;
+    font-size: 1.2rem;
+}
+
+#location-panel h3 {
+    padding: 0 .5rem;
+    font-size: .9rem;
+    color: rgb(0, 0, 0);
+    width: 90%;
+    margin-bottom: 2rem;
+    text-align: justify;
+    font-weight: 100;
+}
+
+#location-panel-data {
+    position: relative;
+    max-height: 64vh;
+    overflow-y: scroll;
+    padding-bottom: 3rem;
+    background-color: white;
+}
+
+#location_share {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    padding: .3rem 1.8rem .1rem 1.8rem;
+    margin: .8rem;
+    border-radius: 1rem;
+    background: linear-gradient(145deg, #5c4bdb, #6d59ff);
+}
+
+#location_share img {
+    width: 1.2rem;
+    filter: invert(100%);
+}
+
+#location_googlemaps {
+    padding: 1rem;
+    padding-top: 0;
+    text-align: right;
+    margin: 0;
+}
+
+#location_googlemaps a {
+    font-size: .8rem;
+    color: rgb(30, 0, 85);
+}
+
+#location_address {
+    margin: 1rem;
+    margin-bottom: .5rem;
+    text-align: right;
+}
+
+#location_socialmedia {
+    display: flex;
+    padding-left: 1rem;
+}
+
+#location_socialmedia>img {
+    width: 1.5rem;
+}
+
+#location_socialmedia>p {
+    padding: .5rem;
+    font-size: 1rem;
+    margin: 0;
+}
+
+#location_socialmedia a {
+    text-decoration: 0;
+    color: rgb(30, 0, 85);
+}
+
+.location-image {
+    cursor: pointer;
+    height: 10rem;
+    margin-right: 2px;
+}
+
+.single-location-image {
+    display: block;
+    margin: 2px auto;
+}
+
+#location-photos {
+    display: flex;
+    overflow-x: scroll;
+    align-items: flex-start;
+    margin: .5rem 0;
+    margin-bottom: 1.5rem;
+    padding: 0 2px;
+    background-color: whitesmoke;
+}
+
+.show-location-panel {
+    transform: translate(-50%, 0%) !important;
+}
+
+.hide-location-panel {
+    transform: translate(-50%, 100%) !important;
+}
+
+@media (min-width: 576px) {
+    #location-panel {
+        width: 500px;
+    }
+}

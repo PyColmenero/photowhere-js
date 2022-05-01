@@ -9,13 +9,14 @@
     <title>PHOTOWHERE</title>
     <link rel="icon" href="./src/img/ma1.png">
 
-    <link rel="stylesheet" href="./src/css/common.css?v=5">
-    <link rel="stylesheet" href="./src/css/forms.css?v=5">
-    <link rel="stylesheet" href="./src/css/contribute.css?v=5">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+
+    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/forms.css">
+    <link rel="stylesheet" href="./src/css/contribute.css">
 
 
 </head>
@@ -27,16 +28,16 @@
     </nav>
 
     <div id="mobile">
-        <main style="padding: 2rem 0;">
+        <main>
             <div class="section_title">
                 <h2>Contribute</h2>
             </div>
 
             <form>
                 <label>Nombre del lugar:*</label>
-                <input type="text" id="name_place" placeholder="Nombre.">
+                <input type="text" id="location_name" placeholder="Nombre.">
                 <label>Descripción:</label>
-                <textarea name="" id="desc_place" cols="30" placeholder="Descipción." rows="4"></textarea>
+                <textarea name="" id="location_description" cols="30" placeholder="Descipción." rows="4"></textarea>
                 <!-- <img src="" alt="" id="ola"> -->
                 <!-- <div id="photos_input">
                     
@@ -86,34 +87,35 @@
                 </div>
 
 
-                <img src="./src/img/cancel.svg" id="close" class="hidden">
+                <!-- <img src="./src/img/cancel.svg" id="close-contribute-map" class="hidden"> -->
 
-                <label id="error"></label>
+                <label class="error"></label>
                 <button type="button" id="send">SIGUIENTE</button>
             </form>
         </main>
+        <footer>
+            <a href="./">
+                <img src="./src/img/search.svg" alt="Home footer button">
+            </a>
+            <a href="./map">
+                <img src="./src/img/map.svg" alt="Map footer button">
+            </a>
+            <a href="./contribute">
+                <img src="./src/img/add.svg" alt="Contribute footer button">
+            </a>
+            <a href="./profile">
+                <img src="./src/img/user.svg" alt="Profile footer button">
+            </a>
+        </footer>
     </div>
 
-    <footer>
-        <a class="nav__button" href="./index.html">
-            <img src="https://acolmenero.site/photowhere/src/img/search.svg" alt="Search footer button">
-        </a>
-        <a class="nav__button" href="./map.html">
-            <img src="https://acolmenero.site/photowhere/src/img/map.svg" alt="Map footer button">
-        </a>
-        <a class="nav__button" href="./contribute.html">
-            <img src="https://acolmenero.site/photowhere/src/img/add.svg" alt="Contribute footer button">
-        </a>
-        <a class="nav__button" href="./profile.html">
-            <img src="https://acolmenero.site/photowhere/src/img/user.svg" alt="Account footer button">
-        </a>
-    </footer>
 
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js?v=5" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script src="./src/js/contribute.js?v=5"></script>
-    <script src="./src/js/Geo.js?v=5"></script>
-    <script src="./src/js/get_loc_map.js?v=5"></script>
+    <!-- <script src="./src/js/contribute.js?v=5"></script>
+        <script src="./src/js/get_loc_map.js?v=5"></script> -->
+    <script src="./src/js/GeoController.js"></script>
+    <script src="./src/js/ContributeController.js"></script>
 
 </body>
 

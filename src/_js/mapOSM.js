@@ -7,7 +7,7 @@ class Map {
         this.isMoving;
         this.locations;
         this.locs_ids = [];
-        this.url_id_set = false;
+        this.shared_location = false;
         this.tilesSource = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
         this.iconMarker = L.icon({
             iconUrl: './src/img/marker.png',

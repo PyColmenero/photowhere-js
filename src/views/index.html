@@ -9,13 +9,7 @@
     <title>PHOTOWHERE</title>
     <link rel="icon" href="./src/img/ma1.png">
 
-    <!-- <link rel="stylesheet" href="./src/css/style.css"> -->
-    <link rel="stylesheet" href="./src/css/place.css">
-    <link rel="stylesheet" href="./src/css/photo.css">
 
-    <link rel="stylesheet" href="./src/css/loading.css">
-    <link rel="stylesheet" href="./src/css/home.css">
-    <link rel="stylesheet" href="./src/css/common.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -23,17 +17,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <!-- font-family: 'Montserrat', sans-serif; -->
 
+    <!-- css -->
+    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/locationpanel.css">
+    <link rel="stylesheet" href="./src/css/loading.css">
+    <link rel="stylesheet" href="./src/css/photodisplaypanel.css">
+    <link rel="stylesheet" href="./src/css/photogrid.css">
+    <link rel="stylesheet" href="./src/css/home.css">
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
 
 </head>
 
 <body>
 
-    <nav>
-        <h1>PHOTOWHERE</h1>
-    </nav>
 
-    <div id="active_pos" style="display: none;">
+
+    <!-- <div id="active_pos" style="display: none;">
         <div>
             <h2>Dar acceso a la ubicación</h2>
             <p>Si quiere ver los lugares más cercanos, y ubicarte automaticamente en el mapa donde esté usted, da acceso a la ubicación</p>
@@ -42,67 +43,77 @@
                 <div id="deny_pos" class="noselect">No, gracias</div>
             </div>
         </div>
+    </div> -->
+
+    <div id="photo-display-panel" style="display:none;">
+        <div id="close-photo-display-panel" class="close-panel">
+            <img src="./src/img/cancel.svg" alt="cerrar ventana">
+        </div>
+        <div id="photo-display-panel-container">
+            <img src="" alt="previsualizar" id="photo-display-panel-img">
+        </div>
+        <div id="photo-display-panel-arrows">
+            <div id="photo-display-panel-left-arrow" class="arrow">
+                <img src="./src/img/arrow.svg" alt="flecha izquierda">
+            </div>
+            <div id="photo-display-panel-right-arrow" class="arrow">
+                <img src="./src/img/arrow.svg" alt="flecha derecha">
+            </div>
+        </div>
     </div>
 
-    <div id="photo" style="display:none;">
-        <div class="close">
-            <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-photo">
-        </div>
-        <div id="photo-cont">
-            <img src="" alt="previsualizar" id="img_pre">
-        </div>
-        <div id="arrows">
-            <div id="left_arrow"> <img src="https://acolmenero.site/photowhere/src/img/arrow.svg" alt="flecha izquierda">
-            </div>
-            <div id="right_arrow"> <img src="https://acolmenero.site/photowhere/src/img/arrow.svg" alt="flecha derecha">
-            </div>
-        </div>
-    </div>
-
+    <nav>
+        <h1>PHOTOWHERE</h1>
+    </nav>
     <div id="mobile">
+
+
         <main>
 
-            <div id="place">
-                <div id="place-data" class="hide-data">
-                    <div id="closediv" class="close">
-                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
-                    </div>
-                    <div id="data_place">
-                        <div id="loading_place">
-                            <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+            <div id="location-panel" class="hide-location-panel">
+                <div class="close-panel" id="close-location-panel">
+                    <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-location-panel">
+                </div>
+                <div id="location-panel-data">
+                    <div id="inject-data">
+
+                        <div id="location_share">
+                            <img src="./src/img/share1.svg" alt="">
                         </div>
-                        <div id="inject-data">
-                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
-                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                            <div id="social_media">
+
+                        <h2 id="location_name">Lorem ipsum dolor.</h2>
+                        <h3 id="location_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+
+                        <div>
+                            <a href="" id="location_socialmedia">
                                 <img alt="icono de la red social">
                                 <p></p>
-                            </div>
-                            <div id="place_photos" data-photos>
-                                <img src="" alt="Foto 0 del lugar">
-                                <img src="" alt="Foto 1 del lugar">
-                            </div>
-
-                            <p id="place_address"></p>
-                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
-                            <div id="own_map_button" class="noselect" data-lat data-lng>
-                                <p>Ver en el mapa</p>
-                            </div>
+                            </a>
                         </div>
+
+                        <div id="location-photos">
+
+                        </div>
+
+                        <p id="location_address"></p>
+                        <p id="location_googlemaps">
+                            <a href="#" target="_blank"> Ver en Google Maps </a>
+                        </p>
+
                     </div>
                 </div>
             </div>
+
             <div id="home">
 
                 <section id="near">
                     <div class="section_title">
                         <h2>Lugares más cercanos</h2>
                         <p>
-                            <a href="./near.html" class="seemore" id="loc_seemore">Ver más</a>
+                            <a href="./near" class="seemore" id="loc_seemore">Ver más</a>
                         </p>
                     </div>
-                    <div id="near_cont" class="near_cont loading_zone">
+                    <div id="near_cont" class="near_cont photogrid loading_zone">
                         <img src="./src/img/loading_w.gif" class="loading_gif" alt="Loading gif">
                     </div>
                 </section>
@@ -111,9 +122,9 @@
                 <section id="popular">
                     <div class="section_title">
                         <h2>Lugares más populares</h2>
-                        <p><a href="./popular.html" class="seemore">Ver más</a></p>
+                        <p><a href="./popular" class="seemore">Ver más</a></p>
                     </div>
-                    <div id="popular_cont" class="popular_cont loading_zone">
+                    <div id="popular_cont" class="popular_cont photogrid loading_zone">
                         <img src="./src/img/loading_w.gif" class="loading_gif" alt="Loading gif">
                     </div>
                 </section>
@@ -124,7 +135,7 @@
                         <h2>Todos los tipos</h2>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=monumentos">
+                        <a href="./tag?t=monumentos">
                             <img src="https://acolmenero.site/photowhere/src/img/types/monumento.jpg" alt="monumentos">
                             <div>
                                 <p> Monumentos </p>
@@ -132,7 +143,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=naturaleza">
+                        <a href="./tag?t=naturaleza">
                             <img src="https://acolmenero.site/photowhere/src/img/types/naturaleza.jpg" alt="naturaleza">
                             <div>
                                 <p> Naturaleza </p>
@@ -140,7 +151,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=playa">
+                        <a href="./tag?t=playa">
                             <img src="https://acolmenero.site/photowhere/src/img/types/playa.jpg" alt="playa">
                             <div>
                                 <p> Playa </p>
@@ -148,7 +159,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=color">
+                        <a href="./tag?t=color">
                             <img src="https://acolmenero.site/photowhere/src/img/types/color_cudillero_2.jpg" alt="color">
                             <div>
                                 <p> Color </p>
@@ -156,7 +167,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=castillo">
+                        <a href="./tag?t=castillo">
                             <img src="https://acolmenero.site/photowhere/src/img/types/castillo_murallaAvila.jpg" alt="castillo">
                             <div>
                                 <p> Castillos </p>
@@ -164,7 +175,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=molinos">
+                        <a href="./tag?t=molinos">
                             <img src="https://acolmenero.site/photowhere/src/img/types/molinosConsuegra.jpg" alt="molinos">
                             <div>
                                 <p> Molinos </p>
@@ -172,7 +183,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=faro">
+                        <a href="./tag?t=faro">
                             <img src="https://acolmenero.site/photowhere/src/img/types/faroTrafalgar.jpg" alt="faro">
                             <div>
                                 <p> Faros </p>
@@ -180,7 +191,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=cascada">
+                        <a href="./tag?t=cascada">
                             <img src="https://acolmenero.site/photowhere/src/img/types/cascada_presasPadrillo_0.jpg" alt="cascada">
                             <div>
                                 <p> Cascadas </p>
@@ -188,7 +199,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=carretera">
+                        <a href="./tag?t=carretera">
                             <img src="https://acolmenero.site/photowhere/src/img/types/carretera_curvaCovadonga.jpg" alt="carretera">
                             <div>
                                 <p> Carretera </p>
@@ -196,7 +207,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=rural">
+                        <a href="./tag?t=rural">
                             <img src="https://acolmenero.site/photowhere/src/img/types/rural_roblerillodegata.jpg" alt="rural">
                             <div>
                                 <p> Rural </p>
@@ -204,7 +215,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=nolight">
+                        <a href="./tag?t=nolight">
                             <img src="https://acolmenero.site/photowhere/src/img/types/nolight.jpg" alt="nolight">
                             <div>
                                 <p> Sin Contaminación Luminica </p>
@@ -212,7 +223,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=puente">
+                        <a href="./tag?t=puente">
                             <img src="https://acolmenero.site/photowhere/src/img/types/puentes.jpg" alt="puente">
                             <div>
                                 <p> Puentes </p>
@@ -220,7 +231,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=urbano">
+                        <a href="./tag?t=urbano">
                             <img src="https://acolmenero.site/photowhere/src/img/types/urbano.jpg" alt="urbano">
                             <div>
                                 <p> Urbano </p>
@@ -228,7 +239,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=estatua">
+                        <a href="./tag?t=estatua">
                             <img src="https://acolmenero.site/photowhere/src/img/types/estatuas_plazaMayorMadrid_0.jpg" alt="estatua">
                             <div>
                                 <p> Estatuas </p>
@@ -236,7 +247,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=graffiti">
+                        <a href="./tag?t=graffiti">
                             <img src="https://acolmenero.site/photowhere/src/img/types/graffiti.jpg" alt="graffiti">
                             <div>
                                 <p> Graffiti </p>
@@ -244,7 +255,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=roca">
+                        <a href="./tag?t=roca">
                             <img src="https://acolmenero.site/photowhere/src/img/types/rocas.jpg" alt="roca">
                             <div>
                                 <p> Rocas </p>
@@ -252,7 +263,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=acantilado">
+                        <a href="./tag?t=acantilado">
                             <img src="https://acolmenero.site/photowhere/src/img/types/acantiladoInfiernu_2.webp" alt="acantilado">
                             <div>
                                 <p> Acantilados </p>
@@ -260,7 +271,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=pueblo">
+                        <a href="./tag?t=pueblo">
                             <img src="https://acolmenero.site/photowhere/src/img/types/pueblo_callejaFlores_0.jpg" alt="pueblo">
                             <div>
                                 <p> Pueblos </p>
@@ -268,7 +279,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=nieve">
+                        <a href="./tag?t=nieve">
                             <img src="https://acolmenero.site/photowhere/src/img/types/nieve_lagoCovadonga_01.jpg" alt="nieve">
                             <div>
                                 <p> Nevado </p>
@@ -276,7 +287,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=vanguardia">
+                        <a href="./tag?t=vanguardia">
                             <img src="https://acolmenero.site/photowhere/src/img/types/vanguardia.jpg" alt="vanguardia">
                             <div>
                                 <p> Vanguardia </p>
@@ -284,7 +295,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=jardin">
+                        <a href="./tag?t=jardin">
                             <img src="https://acolmenero.site/photowhere/src/img/types/jardin_valdemoro.jpg" alt="jardin">
                             <div>
                                 <p> Jardines </p>
@@ -292,7 +303,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=montaña">
+                        <a href="./tag?t=montaña">
                             <img src="https://acolmenero.site/photowhere/src/img/types/montaña.jpg" alt="montaña">
                             <div>
                                 <p> Montaña </p>
@@ -306,7 +317,7 @@
                         </div>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=primavera">
+                        <a href="./tag?t=primavera">
                             <img src="https://acolmenero.site/photowhere/src/img/types/primavera_parqueQuinta_1.jpg" alt="primavera">
                             <div>
                                 <p> Primaveral </p>
@@ -314,7 +325,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=abandonado">
+                        <a href="./tag?t=abandonado">
                             <img src="https://acolmenero.site/photowhere/src/img/types/abandonado_sevilla_55.jpg" alt="abandonado">
                             <div>
                                 <p> Abandonado </p>
@@ -322,7 +333,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=basico">
+                        <a href="./tag?t=basico">
                             <img src="https://acolmenero.site/photowhere/src/img/types/basico_plazaBadajoz_1.jpg" alt="basico">
                             <div>
                                 <p> Básico </p>
@@ -330,7 +341,7 @@
                         </a>
                     </div>
                     <div class="spot_type">
-                        <a href="./places.html?type=bar">
+                        <a href="./tag?t=bar">
                             <img src="https://acolmenero.site/photowhere/src/img/types/bar.jpg" alt="bar">
                             <div>
                                 <p> Bar </p>
@@ -340,34 +351,41 @@
                 </section>
             </div>
         </main>
+
+        <footer>
+            <a href="./">
+                <img src="./src/img/search.svg" alt="Home footer button">
+            </a>
+            <a href="./map">
+                <img src="./src/img/map.svg" alt="Map footer button">
+            </a>
+            <a href="./contribute">
+                <img src="./src/img/add.svg" alt="Contribute footer button">
+            </a>
+            <a href="./profile">
+                <img src="./src/img/user.svg" alt="Profile footer button">
+            </a>
+        </footer>
     </div>
 
-    <footer>
-        <a class="nav__button" href="./index.html">
-            <img src="https://acolmenero.site/photowhere/src/img/search.svg" alt="Search footer button">
-        </a>
-        <a class="nav__button" href="./map.html">
-            <img src="https://acolmenero.site/photowhere/src/img/map.svg" alt="Map footer button">
-        </a>
-        <a class="nav__button" href="./contribute.html">
-            <img src="https://acolmenero.site/photowhere/src/img/add.svg" alt="Contribute footer button">
-        </a>
-        <a class="nav__button" href="./profile.html">
-            <img src="https://acolmenero.site/photowhere/src/img/user.svg" alt="Account footer button">
-        </a>
-    </footer>
 
+    <!-- 
     <script src="./src/js/embed.js?v=5"></script>
     <script src="./src/js/Geo.js?v=5"></script>
     <script src="./src/js/Place.js?v=5"></script>
     <script src="./src/js/Filter.js?v=5"></script>
     <script src="./src/js/near.js?v=5"></script>
-    <script src="./src/js/load_photos.js?v=5"></script>
     <script src="./src/js/home.js?v=5"></script>
-    <script src="./src/js/photo_pre.js?v=5"></script>
+    <script src="./src/js/load_photos.js?v=5"></script>
+    <script src="./src/js/photo_pre.js?v=5"></script> -->
 
+    <script src="./src/js/ApiLocationsController.js"></script>
+    <script src="./src/js/GeoController.js"></script>
+    <script src="./src/js/LocationsController.js"></script>
+    <script src="./src/js/PhotoController.js"></script>
+    <script src="./src/js/HomeController.js"></script>
     <!-- <script src="cordova.js?v=5"></script> -->
-    <script src="./src/js/index.js?v=5"></script>
+    <!-- <script src="./src/js/index.js?v=5"></script> -->
 
 </body>
 

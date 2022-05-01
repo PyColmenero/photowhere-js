@@ -1,0 +1,42 @@
+.photogrid {
+    min-height: 50vh;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 2px;
+}
+
+#near_cont>div:nth-child(8) {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    aspect-ratio: auto;
+    width: auto !important;
+    height: auto !important;
+}
+
+#popular_cont>div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    aspect-ratio: auto;
+    width: auto !important;
+    height: auto !important;
+}
+
+#popular_cont>div:nth-child(8) {
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    aspect-ratio: auto;
+    width: auto !important;
+    height: auto !important;
+}
+
+.location-photogrid {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background-color: rgb(26, 26, 26);
+}
