@@ -5,16 +5,16 @@ if(false){
     $request = substr($request,11);
 }
 
-// echo $request;
+echo $request;
 
 switch ($request) {
-    case '/':
+    case '/photowhere/':
         require './src/views/index.html';
         break;
-    case '':
+    case '/photowhere':
         require './src/views/index.html';
         break;
-    case '/map':
+    case '/photowhere/map':
         require './src/views/map.html';
         break;
     default:
