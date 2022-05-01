@@ -7,7 +7,7 @@ class ApiLocationsController {
     }
     getPopularLocations(callback, limit) {
 
-        let api_url = "http://localhost/web/photowhere/api/popular";
+        let api_url = "./api/popular";
 
         $.ajax({
             type: "POST",
@@ -23,7 +23,7 @@ class ApiLocationsController {
     }
     getNearLocations(callback, limit, lat, lng) {
 
-        let api_url = "http://localhost/web/photowhere/api/near";
+        let api_url = "./api/near";
 
         $.ajax({
             type: "POST",
@@ -39,7 +39,7 @@ class ApiLocationsController {
     }
     getMapLocations(callback) {
 
-        let api_url = "http://localhost/web/photowhere/api/map";
+        let api_url = "./api/map";
 
         $.ajax({
             url: api_url,
