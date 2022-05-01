@@ -2,16 +2,20 @@
 
 $request = $_SERVER['REQUEST_URI'];
 if(false){
-    $request = substr($request,11);
+    $request = substr($request,4);
 }
 
 echo $request;
+if($request == "/photowhere/"){
+    echo "<br>" . 1 . "<br>";
+}
 
 switch ($request) {
     case '/photowhere':
         require './src/views/index.html';
         break;
     case '/photowhere/':
+        echo $request;
         require './src/views/index.html';
         break;
     case '/photowhere/map':
