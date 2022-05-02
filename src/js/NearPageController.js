@@ -14,6 +14,7 @@ class NearPageController {
     }
     buildNearLocatons(locations) {
 
+        console.log(locations);
         locations = JSON.parse(locations);
 
         // inject on grid
