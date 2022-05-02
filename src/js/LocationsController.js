@@ -26,7 +26,7 @@ class LocationsController {
 
             const shareData = {
                 title: 'MDN',
-                text: 'Learn web development on MDN!',
+                text: 'Share this location!',
                 url: location.href
             }
 
