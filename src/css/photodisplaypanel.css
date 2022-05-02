@@ -16,6 +16,7 @@
     align-items: center;
     margin: 2rem auto;
     box-sizing: border-box;
+    position: relative;
 }
 
 #photo-display-panel-img {
@@ -34,7 +35,7 @@
     color: whitesmoke;
     display: flex;
     justify-content: space-between;
-    position: fixed;
+    position: absolute;
     bottom: 50%;
     left: 50%;
     transform: translate(-50%, 50%);
