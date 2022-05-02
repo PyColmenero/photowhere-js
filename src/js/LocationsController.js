@@ -25,7 +25,7 @@ class LocationsController {
         this.locationpanel.share.click(async() => {
 
             const shareData = {
-                title: 'MDN',
+                title: 'Photowhere',
                 text: 'Share this location!',
                 url: location.href
             }
