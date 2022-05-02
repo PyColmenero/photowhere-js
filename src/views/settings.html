@@ -9,36 +9,13 @@
     <title>PHOTOWHERE</title>
     <link rel="icon" href="./src/img/ma1.png">
 
-    <link rel="stylesheet" href="./src/css/common.css?v=5">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 
-    <style>
-        .tag {
-            padding-top: 4rem;
-        }
-        
-        .tag a {
-            text-decoration: 0;
-            background-color: rgb(70, 70, 70) !important;
-            margin: 0 auto;
-            color: rgb(235, 235, 235) !important;
-            margin-bottom: 1.2rem;
-            width: 90%;
-            display: block;
-            padding: .5rem;
-            position: relative;
-            cursor: pointer;
-        }
-        
-        .tag img {
-            width: 16px;
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-    </style>
+    <!-- css -->
+    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/settings.css">
+
 
 </head>
 
@@ -48,57 +25,59 @@
         <h1>PHOTOWHERE</h1>
     </nav>
 
-    <main>
+    <div id="mobile">
+        <main>
 
-        <div class="tag">
+
+            <div class="tag">
 
 
-            <a href="./edit-profile.html" class="list_btn">
-                <span>Edit profile</span>
-                <img src="./src/img/right.svg" alt="">
+                <a href="./edit-profile" class="list_btn">
+                    <span>Edit profile</span>
+                    <img src="./src/img/right.svg" alt="">
+                </a>
+
+                <a href="./terms-conditions" class="list_btn">
+                    <span>Terms and Conditions</span>
+                    <img src="./src/img/right.svg" alt="">
+                </a>
+
+                <a href="./privacy-policy" class="list_btn">
+                    <span>Privacy Policy</span>
+                    <img src="./src/img/right.svg" alt="">
+                </a>
+
+                <a id="logout" class="list_btn">
+                    <span>Log Out</span>
+                    <img src="./src/img/right.svg" alt="">
+                </a>
+            </div>
+
+
+        </main>
+        <footer>
+            <a href="./">
+                <img src="./src/img/search.svg" alt="Home footer button">
             </a>
-
-            <a href="./terms-conditions.html" class="list_btn">
-                <span>Terms and Conditions</span>
-                <img src="./src/img/right.svg" alt="">
+            <a href="./map">
+                <img src="./src/img/map.svg" alt="Map footer button">
             </a>
-
-            <a href="./privacy-policy.html" class="list_btn">
-                <span>Privacy Policy</span>
-                <img src="./src/img/right.svg" alt="">
+            <a href="./contribute">
+                <img src="./src/img/add.svg" alt="Contribute footer button">
             </a>
-
-            <a id="logout" class="list_btn">
-                <span>Log Out</span>
-                <img src="./src/img/right.svg" alt="">
+            <a href="./profile">
+                <img src="./src/img/user.svg" alt="Profile footer button">
             </a>
-        </div>
+        </footer>
+    </div>
 
-
-    </main>
-
-
-    <footer>
-        <a href="./">
-            <img src="./src/img/search.svg" alt="Home footer button">
-        </a>
-        <a href="./map">
-            <img src="./src/img/map.svg" alt="Map footer button">
-        </a>
-        <a href="./contribute">
-            <img src="./src/img/add.svg" alt="Contribute footer button">
-        </a>
-        <a href="./profile">
-            <img src="./src/img/user.svg" alt="Profile footer button">
-        </a>
-    </footer>
 
     <script>
         var logout = $("#logout");
         logout.click(function() {
             localStorage.removeItem("userID");
             localStorage.removeItem("username");
-            window.location = "./login.html";
+            window.location = "./login";
         })
     </script>
 

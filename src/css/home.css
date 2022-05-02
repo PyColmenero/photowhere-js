@@ -24,6 +24,22 @@
 }
 
 
+/* NEAR && POPULAR */
+
+#near_cont {
+    aspect-ratio: 1/1;
+}
+
+#near,
+#popular {
+    margin-bottom: 4rem;
+}
+
+#popular_cont {
+    aspect-ratio: 3/5;
+}
+
+
 /* ========= TIPOS ==========*/
 
 .spot_type {

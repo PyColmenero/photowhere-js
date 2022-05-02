@@ -9,14 +9,6 @@
     <title>PHOTOWHERE</title>
     <link rel="icon" href="./src/img/ma1.png">
 
-    <link rel="stylesheet" href="./src/css/common.css?v=5">
-    <link rel="stylesheet" href="./src/css/types.css?v=5">
-    <link rel="stylesheet" href="./src/css/photo.css?v=5">
-    <link rel="stylesheet" href="./src/css/filters.css?v=5">
-    <link rel="stylesheet" href="./src/css/forms.css?v=5">
-    <link rel="stylesheet" href="./src/css/place.css?v=5">
-    <link rel="stylesheet" href="./src/css/loading.css?v=5">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -26,6 +18,12 @@
     <!-- font-family: 'Montserrat', sans-serif; -->
 
 
+
+    <link rel="stylesheet" href="./src/css/common.css">
+    <link rel="stylesheet" href="./src/css/locationpanel.css">
+    <link rel="stylesheet" href="./src/css/loading.css">
+    <link rel="stylesheet" href="./src/css/photodisplaypanel.css">
+    <link rel="stylesheet" href="./src/css/photogrid.css">
 
 </head>
 
@@ -56,45 +54,41 @@
         <main>
 
 
-            <div id="place">
-                <div id="place-data" class="hide-data">
-                    <div id="closediv" class="close">
-                        <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-place">
-                    </div>
-                    <div id="data_place">
-                        <div id="loading_place">
-                            <img src="./src/img/loading_b.gif" id="loading3" alt="Loading gif">
+            <div id="location-panel" class="hide-location-panel">
+                <div class="close-panel" id="close-location-panel">
+                    <img src="./src/img/cancel.svg" alt="cerrar ventana" id="close-location-panel">
+                </div>
+                <div id="location-panel-data">
+                    <div id="inject-data">
+
+                        <div id="location_share">
+                            <img src="./src/img/share1.svg" alt="">
                         </div>
-                        <div id="inject-data">
-                            <div id="share"> <img src="./src/img/share1.svg" alt=""> </div>
-                            <h2 id="place_name">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                            <h3 id="place_desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                            <div id="social_media">
+
+                        <h2 id="location_name">Lorem ipsum dolor.</h2>
+                        <h3 id="location_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+
+                        <div>
+                            <a href="" id="location_socialmedia">
                                 <img alt="icono de la red social">
                                 <p></p>
-                            </div>
-                            <div id="place_photos" data-photos>
-                                <img src="" alt="Foto 0 del lugar">
-                                <img src="" alt="Foto 1 del lugar">
-                            </div>
+                            </a>
+                        </div>
 
-                            <p id="place_address"></p>
-                            <p id="place_googlemaps"><a href="#"> Ver en Google Maps </a></p>
-                            <div id="own_map_button" class="noselect" data-lat data-lng>
-                                <p>Ver en el mapa</p>
-                            </div>
+                        <div id="location-photos">
 
                         </div>
 
-                        <div id="related">
-                            <p>Lugares cercanos:</p>
-                            <div id="related-indected"></div>
-                        </div>
+                        <p id="location_address"></p>
+                        <p id="location_googlemaps">
+                            <a href="#" target="_blank"> Ver en Google Maps </a>
+                        </p>
+
                     </div>
                 </div>
             </div>
 
-            <div id="places" class="near_cont loading_zone">
+            <div id="near-photogrid" class="photogrid loading_zone">
 
                 <img src="./src/img/loading_w.gif" class="loading_gif" alt="Loading gif" style="margin: 15rem 0;">
 
@@ -102,34 +96,31 @@
 
 
         </main>
+        <footer>
+            <a href="./">
+                <img src="./src/img/search.svg" alt="Home footer button">
+            </a>
+            <a href="./map">
+                <img src="./src/img/map.svg" alt="Map footer button">
+            </a>
+            <a href="./contribute">
+                <img src="./src/img/add.svg" alt="Contribute footer button">
+            </a>
+            <a href="./profile">
+                <img src="./src/img/user.svg" alt="Profile footer button">
+            </a>
+        </footer>
     </div>
 
 
-    <footer>
-        <a href="./">
-            <img src="./src/img/search.svg" alt="Home footer button">
-        </a>
-        <a href="./map">
-            <img src="./src/img/map.svg" alt="Map footer button">
-        </a>
-        <a href="./contribute">
-            <img src="./src/img/add.svg" alt="Contribute footer button">
-        </a>
-        <a href="./profile">
-            <img src="./src/img/user.svg" alt="Profile footer button">
-        </a>
-    </footer>
 
-    <script src="./src/js/Geo.js?v=5"></script>
-    <script src="./src/js/load_photos.js?v=5"></script>
-    <script src="./src/js/Place.js?v=5"></script>
-    <script src="./src/js/Filter.js?v=5"></script>
-    <script src="./src/js/near.js?v=5"></script>
-    <script src="./src/js/photo_pre.js?v=5"></script>
-    <script src="./src/js/get_locations.js?v=5"></script>
+    <script src="./src/js/ApiLocationsController.js"></script>
+    <script src="./src/js/GeoController.js"></script>
+    <script src="./src/js/LocationsController.js"></script>
+    <script src="./src/js/PhotoController.js"></script>
+    <script src="./src/js/NearPageController.js"></script>
+    <script src="./src/js/endpoint.js"></script>
 
-    <!-- <script src="cordova.js?v=5"></script> -->
-    <script src="./src/js/index.js?v=5"></script>
 
 </body>
 

@@ -2,7 +2,7 @@
     position: fixed;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.85);
-    z-index: 3000;
+    z-index: 3005;
     top: 0;
     height: 100vh;
     width: 100%;
@@ -10,7 +10,7 @@
 }
 
 #photo-display-panel-container {
-    min-height: 72vh;
+    min-height: 80vh;
     width: 95vw;
     display: flex;
     align-items: center;
@@ -62,6 +62,9 @@
 }
 
 @media (min-width: 576px) {
+    #photo-display-panel-container {
+        min-height: 86vh;
+    }
     #photo-display-panel {
         padding-top: 0;
     }

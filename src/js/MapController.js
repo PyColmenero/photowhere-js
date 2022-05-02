@@ -33,8 +33,8 @@ class MapController {
 
     load_locations(locations) {
 
-        locationscontroller.locations = JSON.parse(locations);
-        locations = locationscontroller.locations
+        locations = JSON.parse(locations);
+        locationscontroller.pushLocations(locations);
 
         var min_x = 1000;
         var min_y = 1000;
@@ -136,20 +136,6 @@ class MapController {
     }
 
 }
-
-// encargado de hacer las peticiones a la API
-// traera los alfileres del mapa
-let apilocationscontroller = new ApiLocationsController();
-// encargado de recoger las coordenadas del usuario
-// y así centrar el mapa en tu posición
-let geocontroller = new GeoController();
-// se encargará de almacenar y mostrara las locations
-let locationscontroller = new LocationsController();
-// encargado de display una imagen para verla más grande
-let photocontroller = new PhotoController();
-// encargado de generar el mapa y poner los alfileres
-let mapcontroller = new MapController();
-
 
 
 

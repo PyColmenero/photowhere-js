@@ -30,11 +30,12 @@ class LocationsController {
 
         });
     }
-    setLocations(locations) {
-        this.locations = locations;
+    pushLocations(locations) {
+        this.locations = this.locations.concat(locations);
     }
     getLocation(id) {
-        return this.locations[id];
+        // obtener el Location segun su ID
+        return this.locations.filter(location => location.idLocation == id)[0];
     }
     showLocationOnScreen(id) {
 
@@ -42,16 +43,15 @@ class LocationsController {
         this.showLocationPanel();
 
         let location = this.getLocation(id);
-        console.log(location);
 
         // name
         this.locationpanel.title.text(location.nameLocation);
 
         // description + tags
         let description = location.descriptionLocation;
-        let tags = location.tags.split(", ");
+        let tags = location.tags;
         tags.forEach(element => {
-            description += " <a href=''>#" + element + "</a>";
+            description += " <a href='/photowhere/tag/" + element + "'>#" + element + "</a>";
         });
 
         this.locationpanel.description.html(description);
@@ -92,11 +92,10 @@ class LocationsController {
         }
     }
     setLocationPanelPhotos(photos) {
-        photos = photos.split(", ")
         var photos_html = "";
         var single_image_class = (photos.length == 1) ? "single-location-image" : "";
         for (var x = 0; x < photos.length; x++) {
-            photos_html += '<img class="location-image ' + single_image_class + '" src="./src/photos/' + photos[x] + '" alt="Foto ' + x + ' del lugar">';
+            photos_html += '<img class="location-image ' + single_image_class + '" src="/photowhere/src/photos/' + photos[x] + '" alt="Foto ' + x + ' del lugar">';
         }
         this.locationpanel.photos.html(photos_html);
     }

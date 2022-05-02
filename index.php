@@ -2,13 +2,14 @@
 
 $request = $_SERVER['REQUEST_URI'];
 
-if(true){
-    $request = substr($request,11);
+if (true) {
+    // $request = substr($request,15); 
+    $request = substr($request, 11); // change before gitpush
 }
 
-$request = explode("/",$request);
+$request = explode("/", $request);
 $root = $request[1];
-$root = "/" . explode("?",$root)[0];
+$root = "/" . explode("?", $root)[0];
 
 switch ($root) {
     case '/api':
@@ -29,17 +30,8 @@ switch ($root) {
     case '/contribute-images':
         require './src/views/contribute-images.html';
         break;
-    case '/login':
-        require './src/views/login.html';
-        break;
-    case '/signup':
-        require './src/views/signup.html';
-        break;
     case '/tag':
         require './src/views/tag.html';
-        break;
-    case '/profile':
-        require './src/views/profile.html';
         break;
     case '/frame':
         require './src/views/frame.html';
@@ -49,6 +41,27 @@ switch ($root) {
         break;
     case '/popular':
         require './src/views/popular.html';
+        break;
+    case '/profile':
+        require './src/views/profile.html';
+        break;
+    case '/login':
+        require './src/views/login.html';
+        break;
+    case '/signup':
+        require './src/views/signup.html';
+        break;
+    case '/settings':
+        require './src/views/settings.html';
+        break;
+    case '/edit-profile':
+        require './src/views/edit-profile.html';
+        break;
+    case '/terms-conditions':
+        require './src/views/terms-conditions.html';
+        break;
+    case '/privacy-policy':
+        require './src/views/privacy-policy.html';
         break;
     default:
         http_response_code(404);

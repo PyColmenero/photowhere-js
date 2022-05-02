@@ -57,3 +57,18 @@ form p {
     cursor: pointer;
     margin-top: 0;
 }
+
+main {
+    padding: 2rem 1rem;
+}
+
+h2 {
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.prefer {
+    color: rgb(126, 126, 126);
+    font-size: .8rem;
+    margin-right: 1rem;
+}

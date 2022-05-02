@@ -33,7 +33,7 @@ section {
     text-decoration: 0;
 }
 
-#near_cont,
+#near-photogrid,
 #popular_cont,
 .user_cont {
     width: 100%;
@@ -117,7 +117,7 @@ section {
     margin: 1px;
 } */
 
-#near_cont,
+#near-photogrid,
 #popular_cont {
     min-height: 50vh;
     display: grid;

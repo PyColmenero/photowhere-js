@@ -12,7 +12,8 @@
 
 #location-panel h2,
 #location-panel h3,
-#location_address {
+#location_address,
+#location_socialmedia p {
     color: black;
 }
 
@@ -25,7 +26,6 @@
 #location-panel h3 {
     padding: 0 .5rem;
     font-size: .9rem;
-    color: rgb(0, 0, 0);
     width: 90%;
     margin-bottom: 2rem;
     text-align: justify;

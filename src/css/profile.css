@@ -1,0 +1,61 @@
+#profile-settings-button {
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+#profile-settings-button>img {
+    width: 2rem;
+    height: 2rem;
+    padding: .5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#profile-settings-button>img:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+#username_div {
+    background: url("../img/a.jpg") no-repeat center;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+#username {
+    margin: 0;
+    color: aliceblue;
+    width: 100%;
+    margin-left: 2rem;
+}
+
+#title {
+    padding: 1rem;
+    background-color: black;
+    color: whitesmoke;
+}
+
+#places {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 2px;
+    row-gap: 2px;
+}
+
+#mobile {
+    min-height: 80vh;
+}
+
+.section_title {
+    padding: .7rem;
+    background-color: black;
+}
+
+.section_title h2 {
+    margin: 0;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}

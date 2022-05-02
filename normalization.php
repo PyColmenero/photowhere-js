@@ -1,5 +1,8 @@
 <?php
 
+// TODO que la api devuelva las images y tags en forma de ARRAY
+// TODO que la api devuelva las localizaciones en array en vez de diccionario
+    // TODO que las el LocationsController trate a las localizaciones como array y no como dicctionar
 
 $database_user = 'u254792697_coopolarway';
 $database_pasw = 'ColmeHost06.';

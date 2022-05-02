@@ -29,7 +29,6 @@ class PhotoController {
                 images_url_list.push(img.attr("src"));
             });
 
-            console.log(images_url_list);
             // pido al controlador que lo displaiee
             photocontroller.openDisplayPhotoPanel(images_url_list, images_url_list.indexOf(image))
 
@@ -83,8 +82,7 @@ class PhotoController {
         for (let key in locations) {
             var location = locations[key];
 
-            console.log(location);
-            var src = "./src/photos/" + location.photos.split(", ")[0];
+            var src = "/photowhere/src/photos/" + location.photos[0];
             let style_attr = "style='background: url(\"" + src + "\") no-repeat center; background-size:cover'";
 
             html += "<div class='location-photogrid' data-id='" + location.idLocation + "' " + style_attr + " ></div>";

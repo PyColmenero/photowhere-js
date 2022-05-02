@@ -5,6 +5,38 @@ class ApiLocationsController {
     load() {
 
     }
+    getProfileLocations(callback, userId) {
+
+        let api_url = "/photowhere/api/profile";
+
+        $.ajax({
+            type: "POST",
+            url: api_url,
+            data: { "id": userId },
+            success: function(res) {
+
+                callback(res);
+
+            }
+        });
+
+    }
+    getTagLocations(callback, tag, limit) {
+
+        let api_url = "/photowhere/api/tag";
+
+        $.ajax({
+            type: "POST",
+            url: api_url,
+            data: { "limit": limit, "tag": tag },
+            success: function(res) {
+
+                callback(res);
+
+            }
+        });
+
+    }
     getPopularLocations(callback, limit) {
 
         let api_url = "./api/popular";

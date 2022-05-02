@@ -1,0 +1,38 @@
+.tag {
+    padding-top: 4rem;
+}
+
+.tag a {
+    text-decoration: 0;
+    background-color: rgb(70, 70, 70) !important;
+    color: rgb(235, 235, 235) !important;
+    margin-bottom: 1.2rem;
+    display: block;
+    padding: .5rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.tag img {
+    width: 16px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+main {
+    min-height: 80vh;
+    padding: 0 1rem;
+}
+
+.section_title {
+    position: relative;
+    padding: .7rem;
+}
+
+.section_title h2 {
+    margin: 0;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
