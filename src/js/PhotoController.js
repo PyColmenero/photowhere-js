@@ -61,13 +61,13 @@ class PhotoController {
         this.displayPhoto();
     }
     leftArrowClick() {
-        console.log(this.images_url_list_index);
+
         if (this.images_url_list_index == 0) {
             this.images_url_list_index = this.images_url_list.length - 1;
         } else {
             this.images_url_list_index--;
         }
-        console.log(this.images_url_list_index);
+
         this.displayPhoto();
     }
     displayPhoto() {

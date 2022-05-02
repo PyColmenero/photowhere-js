@@ -99,9 +99,6 @@ class LocationsController {
         }
         this.locationpanel.photos.html(photos_html);
     }
-    displayLocationPanelPhoto(src) {
-        console.log(src);
-    }
     showLocationPanel() {
         this.divLocationPanel.attr("class", "show-location-panel")
     }
