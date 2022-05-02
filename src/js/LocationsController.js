@@ -21,6 +21,22 @@ class LocationsController {
         this.buttonCloseLocationPanel.click(function() {
             locationscontroller.closeLocationPanel();
         });
+        // click on close location panel
+        this.locationpanel.share.click(async() => {
+
+            const shareData = {
+                title: 'MDN',
+                text: 'Learn web development on MDN!',
+                url: location.href
+            }
+
+            try {
+                await navigator.share(shareData)
+                console.log('MDN shared successfully');
+            } catch (err) {
+                console.log('Error: ' + err);
+            }
+        });
         // click on location grid image
         $(document).on('click', '.location-photogrid', function() {
 

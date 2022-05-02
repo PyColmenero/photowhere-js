@@ -27,11 +27,26 @@ class MapController {
         }).addTo(this.map);
 
         //cargamos los alfileres
-        apilocationscontroller.getMapLocations(this.load_locations);
+        apilocationscontroller.getMapLocations(this.loadLocations.bind(this));
 
     }
+    checkSharedLocation() {
 
-    load_locations(locations) {
+        let id = getUrlParameter('id');
+
+        if (id) { // si hay compartición
+            let sharedlocation = locationscontroller.getLocation(id);
+            let lat = sharedlocation.latitudeLocation;
+            let lng = sharedlocation.longitudeLocation;
+
+            this.map.setView([lat, lng], 15);
+
+            locationscontroller.showLocationOnScreen(id);
+
+        }
+
+    }
+    loadLocations(locations) {
 
         locations = JSON.parse(locations);
         locationscontroller.pushLocations(locations);
@@ -59,12 +74,17 @@ class MapController {
             marker.addTo(mapcontroller.map)
             marker.on('click', function() {
 
+                window.history.replaceState({}, "", "/photowhere/map?id=" + this.id);
+
                 locationscontroller.showLocationOnScreen(this.id);
 
             });
             mapcontroller.markers.push(marker);
         }
 
+
+        // check si hay location compartida
+        this.checkSharedLocation();
         // poner nº resultados, añadir sitios cercanos
         // if (location.search != "") {
         //     if (this.locations.length != 0) {
@@ -136,3 +156,18 @@ class MapController {
     }
 
 }
+
+function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
