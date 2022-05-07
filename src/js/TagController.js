@@ -11,7 +11,7 @@ class TagController {
         url = url.split("/")
         this.tag = url[url.length - 1];
 
-        apilocationscontroller.getTagLocations(this.loadTagLocations.bind(this), this.tag, this.limit);
+        apicontroller.getTagLocations(this.loadTagLocations.bind(this), this.tag, this.limit);
 
     }
     loadTagLocations(locations) {
@@ -19,7 +19,7 @@ class TagController {
         locations = JSON.parse(locations);
 
         // inject on grid
-        photocontroller.injectPhotosGridOnElement(locations, this.htmlElementInject);
+        photocontroller.injectPhotosOnPhotogridElement(locations, this.htmlElementInject);
 
         // append to locations
         locationscontroller.pushLocations(locations);

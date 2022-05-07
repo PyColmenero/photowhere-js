@@ -34,7 +34,14 @@ switch ($root) {
         break;
     case "login":
 
+        include("DataBase.php");
         login();
+
+        break;
+    case "register":
+
+        include("DataBase.php");
+        register();
 
         break;
     default:
@@ -46,8 +53,6 @@ switch ($root) {
 function login() {
 
     if (isset($_POST["username"]) && isset($_POST["password"])) {
-
-        include("DataBase.php");
         
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -71,11 +76,59 @@ function login() {
                 echo json_encode(array("error"=>"Username and password do not match"));
             }
 
-            
+        }
+        // cerrar conexion
+        $conexion->close();
+    }
+}
+function register() {
+
+    if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["password2"])) {
+        
+        $username = $_POST["username"];
+        $password1 = $_POST["password"];
+        $password2 = $_POST["password2"];
+        $email =     (isset($_POST["email"]))     ? $_POST["email"]     : "";
+        $instagram = (isset($_POST["instagram"])) ? $_POST["instagram"] : "";
+        $tiktok =    (isset($_POST["tiktok"]))    ? $_POST["tiktok"]    : "";
+    
+        // error 1
+        if($password1 !== $password2){
+            echo json_encode(array("error"=>"Las contraseñas no coinciden"));
+            return;
+        }
+
+        $database = new DataBase();
+        $conexion = $database->getConexion();
+
+        $sentencia_repeated_user = "SELECT nameUser FROM users WHERE nameUser = '$username'";
+
+        if ($rows = $conexion->query($sentencia_repeated_user)) {
+
+            $numrows = mysqli_num_rows(($rows));
+
+            if($numrows === 0){
+                
+                $sentencia_signup = "INSERT INTO users VALUES(NULL, '$username', MD5('$password1'), '$email', NOW(), '$instagram', '$tiktok')";
+
+                if ($rows = $conexion->query($sentencia_signup)) {
+
+                    // SI EL REGISTRO HA IDO BIEN, HACE LOGIN;
+                    login();
+
+                } else {
+                    echo json_encode(array("error"=> mysqli_error($conexion)));
+                }
+
+            } else {
+                echo json_encode(array("taken"=>"Username is already taken."));
+            }
 
         }
         // cerrar conexion
         $conexion->close();
+    } else {
+        echo json_encode(array("error"=>"Faltan datos."));
     }
 }
 function get_profile_locations() {
@@ -94,7 +147,9 @@ function get_profile_locations() {
                         (SELECT GROUP_CONCAT(urlPhoto SEPARATOR ', ') urlPhoto FROM photos WHERE idLocation = idLocationFK ) photos
                     FROM locations
                     WHERE idUserPostedFK = $userId
-                    LIMIT 100";
+                    ORDER BY viewsLocation DESC
+                    LIMIT 100
+                    ";
 
         if ($rows = $conexion->query($sentencia)) {
 

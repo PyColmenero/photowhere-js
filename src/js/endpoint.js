@@ -1,7 +1,8 @@
+let rootpath = "/photowhere/";
 let url = location.pathname.split("/")[2]
 
 // encargado de hacer las peticiones a la API
-let apilocationscontroller = null;
+let apicontroller = null;
 // encargado de recoger las coordenadas del usuario
 // y así centrar el mapa en tu posición
 let geocontroller = null;
@@ -10,9 +11,9 @@ let locationscontroller = null;
 // encargado de display una imagen para verla más grande
 let photocontroller = null;
 // generar los lugares más populares
-let popularpagecontroller = null;
+let popularcontroller = null;
 // generar los lugares más cercanos
-let nearpagecontroller = null;
+let nearcontroller = null;
 // obtiene la tag de la URL y llama a la ApiController para obtener las localizaciones y luego a LocationsController para inyectarlas
 let tagcontroller = null;
 // encargado de generar el mapa y poner los alfileres
@@ -27,34 +28,34 @@ console.log(url);
 switch (url) {
     case "":
 
-        apilocationscontroller = new ApiLocationsController();
+        apicontroller = new ApiController();
         geocontroller = new GeoController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();
-        nearpagecontroller = new NearPageController("#near_cont", 8);
-        popularpagecontroller = new PopularPageController("#popular_cont", 9);
+        nearcontroller = new NearController("#near_cont", 8);
+        popularcontroller = new PopularController("#popular_cont", 9);
 
         break;
     case "popular":
 
-        apilocationscontroller = new ApiLocationsController();
+        apicontroller = new ApiController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();
-        popularpagecontroller = new PopularPageController("#popular-photogrid", 51);
+        popularcontroller = new PopularController("#popular-photogrid", 51);
 
         break;
     case "near":
 
-        apilocationscontroller = new ApiLocationsController();
+        apicontroller = new ApiController();
         geocontroller = new GeoController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();
-        nearpagecontroller = new NearPageController("#near-photogrid", 51);
+        nearcontroller = new NearController("#near-photogrid", 51);
 
         break;
     case "tag":
 
-        apilocationscontroller = new ApiLocationsController();
+        apicontroller = new ApiController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();
         tagcontroller = new TagController("#tag-photogrid", 51);
@@ -63,7 +64,7 @@ switch (url) {
     case "map":
 
         // traera los alfileres del mapa
-        apilocationscontroller = new ApiLocationsController();
+        apicontroller = new ApiController();
         geocontroller = new GeoController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();
@@ -72,8 +73,7 @@ switch (url) {
         break;
     case "profile":
 
-        // traera los alfileres del mapa
-        apilocationscontroller = new ApiLocationsController();
+        apicontroller = new ApiController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();
         profilecontroller = new ProfileController("#profile-photogrid", 100);

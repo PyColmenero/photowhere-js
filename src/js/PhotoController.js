@@ -74,18 +74,18 @@ class PhotoController {
         let image_src = this.images_url_list[this.images_url_list_index];
         this.photo_display_panel_img.attr("src", image_src);
     }
-    injectPhotosGridOnElement(locations, elementIdentidicator) {
+    injectPhotosOnPhotogridElement(locations, elementIdentidicator) {
 
         var html = "";
 
         // generate HTML
         for (let key in locations) {
-            var location = locations[key];
+            var currentlocation = locations[key];
 
-            var src = "/photowhere/src/photos/" + location.photos[0];
+            var src = rootpath + "src/photos/c/" + currentlocation.photos[0];
             let style_attr = "style='background: url(\"" + src + "\") no-repeat center; background-size:cover'";
 
-            html += "<div class='location-photogrid' data-id='" + location.idLocation + "' " + style_attr + " ></div>";
+            html += "<div class='location-photogrid' data-id='" + currentlocation.idLocation + "' " + style_attr + " ></div>";
         }
 
         // inject

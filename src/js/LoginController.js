@@ -42,8 +42,8 @@ class LoginController {
                         logincontroller.badlogin();
                     } else {
                         if (res.id && res.username) {
-                            localStorage.setItem("userID", res.id);
-                            localStorage.setItem("username", res.username);
+                            localStorage.setItem("idUser", res.id);
+                            localStorage.setItem("nameUser", res.username);
                             window.location = "./profile";
                         } else {
                             logincontroller.badlogin();

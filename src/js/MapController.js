@@ -27,7 +27,7 @@ class MapController {
         }).addTo(this.map);
 
         //cargamos los alfileres
-        apilocationscontroller.getMapLocations(this.loadLocations.bind(this));
+        apicontroller.getMapLocations(this.loadLocations.bind(this));
 
         // mover a mi ubicación
         geocontroller.getUserLocation("", this.moveMapToLocation.bind(this));
@@ -85,7 +85,7 @@ class MapController {
             marker.addTo(mapcontroller.map)
             marker.on('click', function() {
 
-                window.history.replaceState({}, "", "/photowhere/map?id=" + this.id);
+                window.history.replaceState({}, "", rootpath + "map?id=" + this.id);
 
                 locationscontroller.showLocationOnScreen(this.id);
 

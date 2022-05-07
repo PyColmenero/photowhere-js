@@ -2,6 +2,8 @@ class GeoController {
     constructor() {
         this.lat = 0;
         this.lng = 0;
+        this.lat = 40.4381311;
+        this.lng = -3.8196196;
         // this.lat = 37.39977957854693;
         // this.lng = -5.930715539801215;
         this.allow_loc = $("#allow_loc");
@@ -15,9 +17,7 @@ class GeoController {
     }
 
     load() {
-        this.allow_loc.click(function() {
-            this.getLocation();
-        });
+        this.allow_loc.click(this.getLocation);
         this.getStoredUserPosition();
     }
 

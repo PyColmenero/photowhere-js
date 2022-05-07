@@ -23,12 +23,14 @@ class LocationsController {
             locationscontroller.closeLocationPanel();
         });
         // click on close location panel
-        this.locationpanel.share.click(async() => {
+        this.locationpanel.share.click(async function() {
+
+            let locationID = $(this).data("id");
 
             const shareData = {
                 title: 'Photowhere',
                 text: 'Share this location!',
-                url: location.href
+                url: location.href + "map?id=" + locationID
             }
 
             try {
@@ -67,7 +69,7 @@ class LocationsController {
         let description = location.descriptionLocation;
         let tags = location.tags;
         tags.forEach(element => {
-            description += " <a href='/photowhere/tag/" + element + "'>#" + element + "</a>";
+            description += " <a href='" + rootpath + "tag/" + element + "'>#" + element + "</a>";
         });
 
         this.locationpanel.description.html(description);
@@ -84,7 +86,7 @@ class LocationsController {
         // share
         this.locationpanel.share.attr("data-id", location.idLocation);
         // map
-        this.locationpanel.mapbutton.attr("href", "/photowhere/map?id=" + location.idLocation);
+        this.locationpanel.mapbutton.attr("href", rootpath + "map?id=" + location.idLocation);
 
         // images
         this.setLocationPanelPhotos(location.photos);
@@ -113,7 +115,7 @@ class LocationsController {
         var photos_html = "";
         var single_image_class = (photos.length == 1) ? "single-location-image" : "";
         for (var x = 0; x < photos.length; x++) {
-            photos_html += '<img class="location-image ' + single_image_class + '" src="/photowhere/src/photos/' + photos[x] + '" alt="Foto ' + x + ' del lugar">';
+            photos_html += '<img class="location-image ' + single_image_class + '" src="' + rootpath + 'src/photos/' + photos[x] + '" alt="Foto ' + x + ' del lugar">';
         }
         this.locationpanel.photos.html(photos_html);
     }

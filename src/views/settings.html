@@ -32,10 +32,10 @@
             <div class="tag">
 
 
-                <a href="./edit-profile" class="list_btn">
+                <!-- <a href="./edit-profile" class="list_btn">
                     <span>Edit profile</span>
                     <img src="./src/img/right.svg" alt="">
-                </a>
+                </a> -->
 
                 <a href="./terms-conditions" class="list_btn">
                     <span>Terms and Conditions</span>
@@ -75,8 +75,8 @@
     <script>
         var logout = $("#logout");
         logout.click(function() {
-            localStorage.removeItem("userID");
-            localStorage.removeItem("username");
+            localStorage.removeItem("nameUser");
+            localStorage.removeItem("idUser");
             window.location = "./login";
         })
     </script>
