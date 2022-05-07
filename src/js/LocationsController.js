@@ -12,7 +12,8 @@ class LocationsController {
             "photos": $("#location-photos"),
             "address": $("#location_address"),
             "googlemaps": $("#location_googlemaps > a"),
-            "share": $("#location_share")
+            "share": $("#location_share"),
+            "mapbutton": $("#location_map")
         }
         this.load();
     }
@@ -32,7 +33,6 @@ class LocationsController {
 
             try {
                 await navigator.share(shareData)
-                console.log('MDN shared successfully');
             } catch (err) {
                 console.log('Error: ' + err);
             }
@@ -83,6 +83,8 @@ class LocationsController {
 
         // share
         this.locationpanel.share.attr("data-id", location.idLocation);
+        // map
+        this.locationpanel.mapbutton.attr("href", "/photowhere/map?id=" + location.idLocation);
 
         // images
         this.setLocationPanelPhotos(location.photos);
@@ -92,9 +94,9 @@ class LocationsController {
         if (credits) {
             credits = credits.split("@");
             let platform = credits[0];
-            platform = "./src/img/" + platform + ".svg"
             let account = credits[1];
-            let link = (platform == "i") ? "https://instagram.com/" + account : "https://instagram.com/@" + account
+            let link = (platform == "i") ? "https://instagram.com/" + account : "https://tiktok.com/@" + account
+            platform = "./src/img/" + platform + ".svg"
 
             this.locationpanel.socialmedia_link.css("display", "flex");
             this.locationpanel.socialmedia_link.attr("href", link);

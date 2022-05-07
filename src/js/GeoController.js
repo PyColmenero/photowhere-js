@@ -1,12 +1,15 @@
 class GeoController {
     constructor() {
-        this.lat = 40.4379543;
-        this.lng = -3.6795367;
+        this.lat = 0;
+        this.lng = 0;
+        // this.lat = 37.39977957854693;
+        // this.lng = -5.930715539801215;
         this.allow_loc = $("#allow_loc");
         this.element = $(".near_cont");
         this.loc_seemore = $("#loc_seemore");
         this.timeOut;
-        this.has = false;
+        this.isLocationStored = false;
+        this.errorStated = false;
 
         this.load();
     }
@@ -18,10 +21,12 @@ class GeoController {
         this.getStoredUserPosition();
     }
 
-    save_pos(lat, lng) {
-        this.lat = lat;
-        this.lng = lng;
-        localStorage.setItem("pos", lat + "," + lng);
+    storeLocation(position) {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        localStorage.setItem("pos", this.lat + "," + this.lng);
+        this.isLocationStored = true;
+        this.callback(this.lat, this.lng);
     }
 
     getStoredUserPosition() {
@@ -31,7 +36,7 @@ class GeoController {
             if (pos.length == 2) {
                 this.lat = parseFloat(pos[0]);
                 this.lng = parseFloat(pos[1]);
-                this.has = true;
+                this.isLocationStored = true;
                 return [this.lat, this.lng];
             } else {
                 return false;
@@ -41,38 +46,39 @@ class GeoController {
         }
     }
 
-    getLocation() {
+    getUserLocation(error_element, callback) {
+
+        this.htmlElementInject = $(error_element);
+        this.callback = callback;
 
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(setUserPos, this.showError, { enableHighAccuracy: true });
+            navigator.geolocation.getCurrentPosition(this.storeLocation.bind(this), this.showError.bind(this), { enableHighAccuracy: true });
 
-            this.timeOut = setTimeout(this.timed_out, 5000);
+            this.timeOut = setTimeout(this.timed_out.bind(this), 5000);
         } else {
-            this.element.text("Geolocation is not supported by this browser.");
+            this.htmlElementInject.text("Geolocation is not supported by this browser.");
         }
 
     }
 
     timed_out() {
-        if (geo.has) {
-            filter.filters = { "near": true, "lat": geo.lat, "lng": geo.lng, "orderby": "viewsPlace", "orderDir": "DESC", "max": 9 };
-            getLocations(filter.filters, "NEAR");
-        } else {
-            geo.element.html("<div class='error_loc'><p class='error_loc'>No parece haber acceso a la Localización. ¿Tienes la ubcación en tu movil activada?</p></div>");
+        if (this.isLocationStored) {
+            // OK
+        } else if (!this.errorStated) {
+            this.htmlElementInject.html("<p class='error none'>No parece haber acceso a la Localización. ¿Tienes la ubcación en tu movil activada?</p>");
         }
     }
 
     showError(error) {
+
+        this.errorStated = true;
+
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                // if (geo.has) {
-                //     geo.element.html("<div class='error_loc'><p>Tienes que permitir la Localización para ver esto. En 5 segundos se actualizará con datos previamente guardados.</p></div>");
-                // } else {
-                //     geo.element.html("<div class='error_loc'><p>Tienes que permitir la Localización para ver esto.</p></div>");
-                // }
-                $("#near").html($("#near").html() + "<div class='error_loc'><p>Tienes que permitir la Localización para ver esto.</p><p id='allow_msg' class='accept_pos noselect'>PERMITIR</p></div>");
-                $("#near_cont").text("");
-                $("#near_cont").attr("class", "near_cont notallowed");
+
+                console.log(this.htmlElementInject);
+                this.htmlElementInject.html("<p class='error none'>No hay permisos de localización</p>");
+                this.htmlElementInject.attr("id", "")
                 break;
             case error.POSITION_UNAVAILABLE:
                 geo.element.html("<div class='error_loc'><p class='error_loc'>Location information is unavailable.</p></div>");
@@ -84,6 +90,6 @@ class GeoController {
                 geo.element.html("<div class='error_loc'><p class='error_loc'>An unknown error occurred.</p></div>");
                 break;
         }
-        geo.loc_seemore.css("display", "none")
+        // geo.loc_seemore.css("display", "none")
     }
 }

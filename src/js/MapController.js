@@ -13,11 +13,11 @@ class MapController {
             iconSize: [43, 64],
             iconAnchor: [21, 60]
         });
+        this.loading_map = $("#loading_map");
 
         this.load();
 
     }
-
     load() {
 
         // instanciamos mapa
@@ -29,6 +29,14 @@ class MapController {
         //cargamos los alfileres
         apilocationscontroller.getMapLocations(this.loadLocations.bind(this));
 
+        // mover a mi ubicación
+        geocontroller.getUserLocation("", this.moveMapToLocation.bind(this));
+
+    }
+    moveMapToLocation(lat, lng) {
+        if (!this.shared_location) { // no me muevas si hay una location compartida
+            this.map.setView([lat, lng], 8);
+        }
     }
     checkSharedLocation() {
 
@@ -38,8 +46,9 @@ class MapController {
             let sharedlocation = locationscontroller.getLocation(id);
             let lat = sharedlocation.latitudeLocation;
             let lng = sharedlocation.longitudeLocation;
+            this.shared_location = true;
 
-            this.map.setView([lat, lng], 15);
+            this.map.setView([lat - 0.027, lng], 13);
 
             locationscontroller.showLocationOnScreen(id);
 
@@ -47,6 +56,8 @@ class MapController {
 
     }
     loadLocations(locations) {
+
+        this.loading_map.attr("class", "loaded_map");
 
         locations = JSON.parse(locations);
         locationscontroller.pushLocations(locations);
@@ -85,6 +96,9 @@ class MapController {
 
         // check si hay location compartida
         this.checkSharedLocation();
+
+
+
         // poner nº resultados, añadir sitios cercanos
         // if (location.search != "") {
         //     if (this.locations.length != 0) {

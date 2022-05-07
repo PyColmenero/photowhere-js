@@ -13,8 +13,6 @@ let photocontroller = null;
 let popularpagecontroller = null;
 // generar los lugares más cercanos
 let nearpagecontroller = null;
-// generar los lugares más cercanos y populares
-let homecontroller = null;
 // obtiene la tag de la URL y llama a la ApiController para obtener las localizaciones y luego a LocationsController para inyectarlas
 let tagcontroller = null;
 // encargado de generar el mapa y poner los alfileres
@@ -24,9 +22,8 @@ let profilecontroller = null;
 
 
 
-
-
 console.log(url);
+
 switch (url) {
     case "":
 
@@ -36,7 +33,6 @@ switch (url) {
         photocontroller = new PhotoController();
         nearpagecontroller = new NearPageController("#near_cont", 8);
         popularpagecontroller = new PopularPageController("#popular_cont", 9);
-        homecontroller = new HomeController()
 
         break;
     case "popular":
@@ -58,7 +54,6 @@ switch (url) {
         break;
     case "tag":
 
-        // traera los alfileres del mapa
         apilocationscontroller = new ApiLocationsController();
         locationscontroller = new LocationsController();
         photocontroller = new PhotoController();

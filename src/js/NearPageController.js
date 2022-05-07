@@ -5,9 +5,7 @@ class NearPageController {
         this.load();
     }
     load() {
-
-        this.loadNearLocations();
-
+        geocontroller.getUserLocation(this.htmlElementInject, this.loadNearLocations.bind(this));
     }
     loadNearLocations() {
         apilocationscontroller.getNearLocations(this.buildNearLocatons.bind(this), this.limit, geocontroller.lat, geocontroller.lng)
