@@ -143,6 +143,18 @@ footer img {
     margin-left: auto;
 }
 
+select {
+    padding: .3rem .1rem;
+    width: 100%;
+    border: 0;
+    border-bottom: 1 solid grey;
+    /* transform: translateY(-1px); */
+    /* -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px); */
+}
+
 @media (min-width: 576px) {
     nav,
     footer,
