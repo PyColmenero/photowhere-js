@@ -1,0 +1,37 @@
+html,
+body {
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+form {
+    padding-top: 1rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+input,
+select {
+    width: 100%;
+    padding: .5rem;
+    margin: 1rem 0;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: .5rem 0;
+}
+
+#file {
+    background-color: #000010;
+    width: 100%;
+    padding: 2rem;
+    color: whitesmoke;
+    display: block;
+    box-sizing: border-box;
+}
+
+.noinput {
+    border: 0;
+}

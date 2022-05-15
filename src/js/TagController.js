@@ -11,6 +11,7 @@ class TagController {
         let url = location.pathname;
         url = url.split("/")
         this.tag = url[url.length - 1];
+        this.tag = decodeURIComponent(this.tag);
         this.select_tag_filter.val(this.tag);
 
         apicontroller.getTagLocations(this.loadTagLocations.bind(this), this.tag, this.limit);

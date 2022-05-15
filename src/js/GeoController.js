@@ -75,8 +75,6 @@ class GeoController {
 
         switch (error.code) {
             case error.PERMISSION_DENIED:
-
-                console.log(this.htmlElementInject);
                 this.htmlElementInject.html("<p class='error none'>No hay permisos de localización</p>");
                 this.htmlElementInject.attr("id", "")
                 break;

@@ -4,6 +4,7 @@ class ContributeController {
         this.send_contribute_button = $("#send");
         this.location_name = $("#location_name");
         this.location_description = $("#location_description");
+        this.location_address = $("#name_place");
         this.error = $(".error");
         this.coordinates = null;
 
@@ -46,9 +47,11 @@ class ContributeController {
 
         let name = this.location_name.val().replaceAll("'", "").replaceAll('"', "");
         let desc = this.location_description.val().replaceAll("'", "").replaceAll('"', "");
+        let address = this.location_address.val().replaceAll("'", "").replaceAll('"', "");
 
         this.location_name.val(name);
         this.location_description.val(desc);
+        this.location_address.val(address);
 
         if (name.length <= 4) {
             this.error.text("Nombre muy corto.");
@@ -64,32 +67,39 @@ class ContributeController {
 
                 this.location_name.val("");
                 this.location_description.val("");
+                this.location_address.val("");
 
-                this.save_form(name, desc);
+                apicontroller.sendContributeForm(this.apiResponse, name, desc, address, this.coordinates.lat, this.coordinates.lng);
 
             }
 
         }
     }
-    save_form(name, desc) {
-        $.ajax({
-            type: "POST",
-            url: "./src/php/mail.php",
-            data: { "name": name, "desc": desc, "lat": this.coordinates.lat, "lng": this.coordinates.lng },
-            success: function(res) {
-
-                if (res) {
-                    console.log(res);
-                } else {
-                    window.location.href = "./contribute-images";
-                }
-
-            }
-        });
+    move(lat, lng) {
+        this.map.setView([lat, lng], 8);
     }
+    apiResponse(response) {
+        try {
+            response = JSON.parse(response)
+
+            if (response.error) {
+                contributecontroller.error.text(response.error);
+                contributecontroller.send_contribute_button.text("Error al enviar");
+            } else if (response.good) {
+                contributecontroller.error.text(response.error);
+                contributecontroller.send_contribute_button.text("Enviado. Muchas gracias.");
+            }
+
+        } catch {
+            contributecontroller.error.text(response);
+            contributecontroller.send_contribute_button.text("Error al enviar");
+        }
+    }
+
 }
 
 let geocontroller = new GeoController();
+let apicontroller = new ApiController();
 let contributecontroller = new ContributeController();
 
 // var map_div = $("#map_div");

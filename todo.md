@@ -1,0 +1,3 @@
+que el guardado del formulario de contributions sea a traves de la API
+añadir opciones de contribute, form, whatsapp, mail...
+panel para ver las contributions y añadirlas a las locations de verdad

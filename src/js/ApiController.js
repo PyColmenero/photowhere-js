@@ -7,19 +7,53 @@ class ApiController {
     }
     getProfileLocations(callback, userId) {
 
-        let api_url = rootpath + "api/profile";
+        if (callback && userId) {
 
+            let api_url = rootpath + "api/profile";
+
+            $.ajax({
+                type: "POST",
+                url: api_url,
+                data: { "id": userId },
+                success: function(res) {
+
+                    callback(res);
+
+                }
+            });
+        } else {
+            console.log("Parameters error.");
+        }
+
+    }
+    getContributions(callback, idUser) {
         $.ajax({
             type: "POST",
-            url: api_url,
-            data: { "id": userId },
+            url: "./api/contributes",
+            data: { "idUser": idUser },
             success: function(res) {
 
-                callback(res);
+                callback(res)
 
             }
         });
+    }
+    sendContributeForm(callback, name, desc, address, lat, lng) {
+        $.ajax({
+            type: "POST",
+            url: "./api/contribute",
+            data: { "name": name, "desc": desc, "address": address, "lat": lat, "lng": lng },
+            success: function(res) {
 
+                callback(res)
+                    // if (res) {
+                    //     console.log(res);
+                    // } else {
+                    //     window.location.href = "./contribute-images";
+                    // }
+
+            }
+        });
     }
     getTagLocations(callback, tag, limit) {
 

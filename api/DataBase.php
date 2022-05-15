@@ -2,14 +2,17 @@
 
 class DataBase {
 
-     // change before gitpush
+    // change before gitpush
     public $host = '45.13.252.52';
     public $username = 'u254792697_photowhere';
     public $password = 'PhotowhereContra06.';
+
     // public $host = 'localhost';
     // public $username = 'root';
     // public $password = '';
+
     public $name = 'u254792697_photowhere';
+
     public $conexion = null;
 
     public function __construct() {

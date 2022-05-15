@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+</head>
+
+<body>
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <input type="text" id="address" placeholder="Address">
+    <select name="address"></select>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js?v=5"></script>
+
+    <script>
+        let select_address = $("select").eq(0);
+        let input_address = $("#address");
+
+        input_address.change(search_adress)
+
+
+        input_address.keyup(function() {
+            delay(search_adress, 1000);
+        });
+
+        var delay = (function() {
+            var timer = 0;
+            return function(callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+
+        function search_adress() {
+            console.log("Searching...");
+            $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q=' + input_address.val(), function(data) {
+                console.log("Got.");
+                if (data) {
+                    if (data.length != 0) {
+                        let options = "";
+                        let x = 0;
+                        data.forEach(option => {
+                            options += "<option value='" + x++ + "'> " + option.display_name + " </option>";
+                        });
+                        select_address.html(options)
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -34,62 +34,24 @@
             </div>
 
             <form>
+
                 <label>Nombre del lugar:*</label>
                 <input type="text" id="location_name" placeholder="Nombre.">
+
                 <label>Descripción:</label>
                 <textarea name="" id="location_description" cols="30" placeholder="Descipción." rows="4"></textarea>
-                <!-- <img src="" alt="" id="ola"> -->
-                <!-- <div id="photos_input">
-                    
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="0"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="1"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="2"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="3"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="4"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="5"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="6"> </div>
-                    </div>
-                    <div class="photo_input">
-                        <div> <img src="./src/img/plus.png" alt="" class="realimg" width="100%" data-id="7"> </div>
-                    </div>
-                </div>
-                <input type="file" id="default-file" hidden="hidden" /> -->
 
-                <!-- Button Markup -->
-                <!-- <div id="custom-btn" type="button" class="btn">
-                    <label>Subir foto</label>
-                </div>
-                <div class="preview_holder">
-                    <div id="preview">
-                        <img src="" id="preview_img" class="preview_img" />
-                        <span id="preview_text" class="preview_text">Image Preview</span>
-                    </div>
-                </div> -->
                 <label>Dirección:</label>
                 <input type="text" id="name_place" placeholder="Dirección.">
-                <!-- <p>Tambien </p> -->
-                <label>Localización (click):</label>
+                <select name="address">
+                    <option value=''>Escribe algo arriba.</option>
+                </select>
                 <div id="map_div">
                     <div id="cmap"></div>
                 </div>
 
-
-                <!-- <img src="./src/img/cancel.svg" id="close-contribute-map" class="hidden"> -->
-
                 <label class="error"></label>
+
                 <button type="button" id="send">SIGUIENTE</button>
             </form>
         </main>
@@ -112,10 +74,68 @@
 
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js?v=5" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <!-- <script src="./src/js/contribute.js?v=5"></script>
-        <script src="./src/js/get_loc_map.js?v=5"></script> -->
+    <script src="./src/js/ApiController.js"></script>
     <script src="./src/js/GeoController.js"></script>
     <script src="./src/js/ContributeController.js"></script>
+
+    <script>
+        let select_address = $("select").eq(0);
+        let input_address = $("#name_place");
+
+        select_address.change(function() {
+
+            let id = $(this).val()
+            contributecontroller.move(address_search_locations[id].lat, address_search_locations[id].lon);
+            contributecontroller.coordinates = {
+                "lat": address_search_locations[0].lat,
+                "lng": address_search_locations[0].lon
+            }
+
+        })
+        input_address.change(search_adress)
+
+        input_address.keyup(function() {
+            select_address.html("<option value=''> Loading... </option>");
+            delay(search_adress, 1000);
+        });
+
+        var delay = (function() {
+            var timer = 0;
+            return function(callback, ms) {
+                clearTimeout(timer);
+                timer = setTimeout(callback, ms);
+            };
+        })();
+
+        let address_search_locations;
+
+        function search_adress() {
+            console.log("Searching...");
+            $.get(location.protocol + '//nominatim.openstreetmap.org/search?format=json&q=' + input_address.val(), function(data) {
+                console.log("Got.");
+                if (data) {
+                    if (data.length != 0) {
+                        address_search_locations = data;
+
+                        contributecontroller.move(data[0].lat, data[0].lon);
+                        contributecontroller.coordinates = {
+                            "lat": data[0].lat,
+                            "lng": data[0].lon
+                        }
+
+                        let options = "";
+                        let x = 0;
+                        data.forEach(option => {
+                            options += "<option value='" + x++ + "'> " + option.display_name + " </option>";
+                        });
+                        select_address.html(options)
+                    } else {
+                        select_address.html("<option value=''> Nothing found. </option>");
+                    }
+                }
+            });
+        }
+    </script>
 
 </body>
 

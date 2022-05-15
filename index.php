@@ -18,6 +18,9 @@ switch ($root) {
     case '/n':
         require './normalization.php';
         break;
+    case '/cpanel':
+        require './src/views/cpanel.html';
+        break;
     case '/':
         require './src/views/index.html';
         break;

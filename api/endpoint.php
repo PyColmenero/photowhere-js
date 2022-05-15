@@ -44,6 +44,16 @@ switch ($root) {
         register();
 
         break;
+    case "contribute":
+
+        setcontribute();
+
+        break;
+    case "contributes":
+
+        getcontributions();
+
+        break;
     default:
         echo json_encode(array("error" => "Bad Request"));
         break;
@@ -131,6 +141,51 @@ function register() {
         echo json_encode(array("error"=>"Faltan datos."));
     }
 }
+function setcontribute() {
+
+    include("DataBase.php");
+
+    if (isset($_POST["name"]) && isset($_POST["desc"]) && isset($_POST["address"]) && isset($_POST["lat"]) && isset($_POST["lng"])) {
+        
+        $name = $_POST["name"];
+        $desc = $_POST["desc"];
+        $address = $_POST["address"];
+        $lat = $_POST["lat"];
+        $lng = $_POST["lng"];
+
+        $database = new DataBase();
+        $conexion = $database->getConexion();
+                
+        $sentencia = "INSERT INTO contributions VALUES(NULL, '$name', '$desc', '$address', '$lat', '$lng')";
+
+        if ($rows = $conexion->query($sentencia)) {
+
+            echo json_encode(array("good"=> "good"));
+
+        } else {
+            echo json_encode(array("error"=> mysqli_error($conexion)));
+        }
+
+        // cerrar conexion
+        $conexion->close();
+    }
+}
+function getcontributions(){
+
+    include("DataBase.php");
+    $database = new DataBase();
+    $conexion = $database->getConexion();
+
+    $sentencia = "SELECT * FROM contributions";
+
+    if ($rows = $conexion->query($sentencia)) {
+
+        $response = build_response_array($rows);
+
+        echo json_encode($response);
+
+    }
+}
 function get_profile_locations() {
 
     if (isset($_POST["id"])) {
@@ -207,10 +262,11 @@ function get_tag_locations() {
                 ORDER BY viewsLocation DESC 
                 LIMIT $limit;";
 
+        
         if ($rows = $conexion->query($sentencia)) {
 
             $response = build_response_array($rows);
-
+            // echo $response;
             echo json_encode($response);
 
         }
@@ -285,11 +341,15 @@ function get_near_locations() {
 function build_response_array($rows){
     $response = array();
     foreach ($rows as $key => $row) {
-        $tags = $row["tags"];
-        $row["tags"] = explode(", ",$tags);
+        if(isset($row["tags"])){
+            $tags = $row["tags"];
+            $row["tags"] = explode(", ",$tags);
+        }
+        if(isset($row["photos"])){
+            $photos = $row["photos"];
+            $row["photos"] = explode(", ",$photos);
+        }
 
-        $photos = $row["photos"];
-        $row["photos"] = explode(", ",$photos);
 
         array_push($response, $row);
     }
