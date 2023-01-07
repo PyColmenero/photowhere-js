@@ -4,7 +4,7 @@ Aplicación web para encontrar los mejores lugares donde hacer fotografías o vi
 
 <br/>
 <img src="./1-band.png" width="100%" alt="Página principal, mapa y spot"/>
-<br/><br/>
+<br/>
 
 ## Página web
 
